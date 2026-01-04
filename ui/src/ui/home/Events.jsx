@@ -32,19 +32,19 @@ const events = [
 
 export const Events = () => {
   return (
-    <section className="py-20 bg-linear-to-b from-blue-50 to-green-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 bg-linear-to-b from-blue-50 to-green-50 max-w-7xl mx-auto px-6">
+      <div className="">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Upcoming Events</h2>
           <p className="text-xl text-gray-700">Join us for these exciting school activities!</p>
         </div>
 
         {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-8">
           {events.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-xs sm:w-auto"
             >
               <img src={item.img} alt={item.title} className="w-full h-48 object-cover" />
               <div className="p-6">

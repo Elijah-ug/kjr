@@ -21,7 +21,7 @@ export const ContactUs = () => {
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">Contact Us</h1>
-            <p className="text-2xl md:text-3xl text-white drop-shadow-lg">
+            <p className="text-xl md:text-3xl text-white drop-shadow-lg">
               We're here to answer your questions and welcome you to our school family
             </p>
           </div>
@@ -30,18 +30,18 @@ export const ContactUs = () => {
 
       {/* Contact Info + Form */}
       <section className="py-20 bg-linear-to-b from-blue-50 to-green-50">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 pt-3">
           {/* Contact Details */}
           <div>
             <h2 className="text-4xl font-bold text-gray-800 mb-8">Get in Touch</h2>
             <div className="space-y-8">
               <div className="flex items-start gap-6">
                 <div className="bg-yellow-500 p-4 rounded-full shadow-lg">
-                  <MapPin className="w-8 h-8 text-gray-900" />
+                  <MapPin className="text-gray-900" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-800">Location</h3>
-                  <p className="text-lg text-gray-600 mt-2">
+                  <h3 className="text-xl font-semibold text-gray-800">Location</h3>
+                  <p className=" text-gray-600 mt-2">
                     Kabale Town, Near Kikungiri Hill
                     <br />
                     Kabale District, Uganda
@@ -51,11 +51,11 @@ export const ContactUs = () => {
 
               <div className="flex items-start gap-6">
                 <div className="bg-yellow-500 p-4 rounded-full shadow-lg">
-                  <Phone className="w-8 h-8 text-gray-900" />
+                  <Phone className="text-gray-900" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-800">Phone</h3>
-                  <p className="text-lg text-gray-600 mt-2">
+                  <h3 className="text-xl font-semibold text-gray-800">Phone</h3>
+                  <p className=" text-gray-600 mt-2">
                     +256 123 456 789
                     <br />
                     +256 987 654 321
@@ -65,11 +65,11 @@ export const ContactUs = () => {
 
               <div className="flex items-start gap-6">
                 <div className="bg-yellow-500 p-4 rounded-full shadow-lg">
-                  <Mail className="w-8 h-8 text-gray-900" />
+                  <Mail className="text-gray-900" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-800">Email</h3>
-                  <p className="text-lg text-gray-600 mt-2">
+                  <h3 className="text-xl font-semibold text-gray-800">Email</h3>
+                  <p className=" text-gray-600 mt-2">
                     info@kabalejunior.sc.ug
                     <br />
                     admissions@kabalejunior.sc.ug
@@ -79,11 +79,11 @@ export const ContactUs = () => {
 
               <div className="flex items-start gap-6">
                 <div className="bg-yellow-500 p-4 rounded-full shadow-lg">
-                  <Clock className="w-8 h-8 text-gray-900" />
+                  <Clock className="text-gray-900" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-800">Office Hours</h3>
-                  <p className="text-lg text-gray-600 mt-2">
+                  <h3 className="text-xl font-semibold text-gray-800">Office Hours</h3>
+                  <p className=" text-gray-600 mt-2">
                     Monday – Friday: 8:00 AM – 5:00 PM
                     <br />
                     Saturday: 9:00 AM – 1:00 PM
@@ -94,7 +94,7 @@ export const ContactUs = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="shadow-2xl">
+          <Card className="shadow-2xl w-xs sm:w-auto mx-auto">
             <CardHeader>
               <CardTitle className="text-3xl font-bold text-center">Send Us a Message</CardTitle>
             </CardHeader>
@@ -141,8 +141,8 @@ export const ContactUs = () => {
       {/* Map Placeholder */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">Find Us on the Map</h2>
-          <div className="h-96 rounded-3xl overflow-hidden shadow-2xl bg-gray-200 border-2 border-dashed border-gray-400 flex items-center justify-center">
+          <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">Find Us on the Map</h2>
+          <div className="h-96 rounded-3xl overflow-hidden shadow-2xl bg-gray-200 border-2 border-dashed border-gray-400 flex items-center justify-center w-xs sm:w-auto mx-auto">
             <div style={{ width: "100%", height: "400px" }}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15958.878141920977!2d32.5938274!3d0.4031876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sug!4v1767475419903!5m2!1sen!2sug"

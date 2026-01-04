@@ -44,18 +44,18 @@ const reasons = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-linear-to-b from-green-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+    <section className="py-20 bg-linear-to-b from-green-50 to-blue-50 px-5 max-w-7xl mx-auto">
+      <div className=" text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Why Parents Choose Kabale Junior School</h2>
         <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto">
           More than just a school — we're a second home where your child thrives in faith, fun, and learning.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center xl:grid-cols-5 gap-8">
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500"
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 w-xs sm:w-auto"
             >
               <div className="relative h-64 overflow-hidden">
                 <img

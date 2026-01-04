@@ -6,7 +6,7 @@ import { Church, Heart } from "lucide-react";
 
 export const About = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center ">
       {/* Hero Banner */}
       <section className="relative h-screen max-h-[80vh] overflow-hidden w-full">
         <img
@@ -29,20 +29,20 @@ export const About = () => {
 
       {/* Mission & Vision */}
       <section className="py-20 bg-linear-to-b from-blue-50 to-green-50 w-full">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center">
+        <div className=" px-6 grid md:grid-cols-2 gap-12 place-items-center">
+          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center w-xs sm:w-auto">
             <Church className="w-16 h-16 text-green-600 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Mission</h2>
-            <p className="text-xl text-gray-700 leading-relaxed">
-              To provide quality Christian nursery and primary education that develops each child's spiritual,
-              academic, social, and emotional potential in a safe, joyful, and loving environment.
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Our Mission</h2>
+            <p className=" leading-relaxed">
+              To provide quality Christian nursery and primary education that develops each child's spiritual, academic,
+              social, and emotional potential in a safe, joyful, and loving environment.
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center">
+          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center w-xs sm:w-auto">
             <Heart className="w-16 h-16 text-yellow-500 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Vision</h2>
-            <p className="text-xl text-gray-700 leading-relaxed">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Our Vision</h2>
+            <p className=" leading-relaxed">
               To raise confident, compassionate, and God-fearing leaders who will positively impact their families,
               communities, and the nation of Uganda.
             </p>
@@ -51,30 +51,28 @@ export const About = () => {
       </section>
 
       {/* History */}
-      <section className="py-20 bg-white w-full">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-12">
-            Our Journey
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
+      <section className="py-20 bg-white w-full text-gray-600 ">
+        <div className=" mx-auto px-6 text-center ">
+          <h2 className="text-2xl md:text-5xl font-bold  mb-12">Our Journey</h2>
+          <div className="grid md:grid-cols-2 place-items-center gap-12 items-center">
+            <div className="order-2 md:order-1 w-xs sm:w-auto">
               <img
                 src="https://assets.arlingtonmagazine.com/2024/05/reach-uganda.jpg"
                 alt="Happy children learning together"
                 className="rounded-3xl shadow-2xl"
               />
             </div>
-            <div className="order-1 md:order-2 text-left">
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            <div className="order-1 md:order-2 text-left w-xs sm:w-auto">
+              <p className=" leading-relaxed mb-6">
                 Founded in [2010], Kabale Junior School began as a small nursery with a big dream: to give every child
                 in Kabale access to quality Christian education.
               </p>
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="  leading-relaxed mb-6">
                 Over the years, we've grown into a thriving nursery and primary school, serving hundreds of families
                 with dedicated teachers, modern facilities, and a curriculum that balances academic excellence with
                 character development.
               </p>
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className=" leading-relaxed">
                 Today, we continue that legacy — surrounded by Kabale's breathtaking hills, raising the next generation
                 in faith, love, and knowledge.
               </p>
@@ -85,16 +83,14 @@ export const About = () => {
 
       {/* Teaching Staff */}
       <section className="py-20 bg-white w-full">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Our Teaching Staff
-          </h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-4xl mx-auto">
-            Our qualified, passionate, and caring teachers are committed to nurturing
-            every child academically, spiritually, and socially.
+        <div className=" mx-auto px-6 text-center ">
+          <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Teaching Staff</h2>
+          <p className=" mb-12 max-w-4xl mx-auto">
+            Our qualified, passionate, and caring teachers are committed to nurturing every child academically,
+            spiritually, and socially.
           </p>
 
-          <div className="relative">
+          <div className="relative w-xs sm:w-auto mx-auto">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMogH8ZxAoniKQk21Nh3oiQwVAPtazB2a8WQ&s"
               alt="Kabale Junior School teaching staff"
@@ -102,8 +98,8 @@ export const About = () => {
             />
             <div className="absolute inset-0 bg-black/40 rounded-3xl flex items-end">
               <p className="text-white text-lg md:text-xl p-6 max-w-3xl text-left">
-                Dedicated teaching staff of Kabale Junior School united by professionalism,
-                faith, and a deep love for children.
+                Dedicated teaching staff of Kabale Junior School united by professionalism, faith, and a deep love for
+                children.
               </p>
             </div>
           </div>
@@ -112,15 +108,13 @@ export const About = () => {
 
       {/* Non Teaching Staff */}
       <section className="py-20 bg-gray-50 w-full">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Our Non-Teaching Staff
-          </h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-4xl mx-auto">
+        <div className=" mx-auto px-6 text-center">
+          <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Non-Teaching Staff</h2>
+          <p className="mb-12 max-w-4xl mx-auto">
             Our support staff ensure a safe, clean, organized, and welcoming school environment every day.
           </p>
 
-          <div className="relative">
+          <div className="relative w-xs sm:w-auto mx-auto">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbnm_YSzv3dXH4F8pvMjnC7v94I4NXkd5dQ&s"
               alt="Kabale Junior School non teaching staff"
@@ -128,8 +122,8 @@ export const About = () => {
             />
             <div className="absolute  inset-0 bg-black/40 rounded-3xl flex items-end">
               <p className="text-white text-lg md:text-xl p-6 max-w-3xl text-left ">
-                Administrators, caretakers, and support workers working together
-                to keep Kabale Junior School running smoothly.
+                Administrators, caretakers, and support workers working together to keep Kabale Junior School running
+                smoothly.
               </p>
             </div>
           </div>
@@ -138,12 +132,12 @@ export const About = () => {
 
       {/* Life at School */}
       <section className="py-20 bg-gray-50 w-full">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">
+        <div className=" mx-auto px-6">
+          <h2 className="text-2xl md:text-5xl font-bold text-center text-gray-800 mb-12">
             Life at Kabale Junior School
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 place-items-center gap-8">
             {[
               {
                 src: "https://www.wvi.org/sites/default/files/inline-images/881A6415%20copy.jpg",
@@ -170,19 +164,14 @@ export const About = () => {
                 caption: "Our beautiful Kabale surroundings that enrich learning and growth.",
               },
             ].map((item, index) => (
-              <figure
-                key={index}
-                className="relative group overflow-hidden rounded-2xl shadow-xl"
-              >
+              <figure key={index} className="relative group overflow-hidden rounded-2xl shadow-xl w-xs sm:w-auto">
                 <img
                   src={item.src}
                   alt={item.caption}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <figcaption className="absolute inset-0 bg-black/50 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex items-end">
-                  <p className="text-white text-base p-4">
-                    {item.caption}
-                  </p>
+                  <p className="text-white text-base p-4">{item.caption}</p>
                 </figcaption>
               </figure>
             ))}
@@ -193,12 +182,8 @@ export const About = () => {
       {/* CTA */}
       <section className="py-20 bg-linear-to-r from-blue-600 to-green-600 text-white w-full">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Ready to Join Our Family?
-          </h2>
-          <p className="text-xl mb-12">
-            Come see why parents across Kabale trust us with their children's future.
-          </p>
+          <h2 className="text-2xl md:text-5xl font-bold mb-8">Ready to Join Our Family?</h2>
+          <p className=" sm:text-xl mb-12">Come see why parents across Kabale trust us with their children's future.</p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
               asChild

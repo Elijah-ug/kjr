@@ -60,11 +60,11 @@ export const CoreValues = () => {
           faith, wisdom, and love.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 place-items-center lg:grid-cols-3 gap-8">
           {values.map((value, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 w-xs sm:w-auto"
             >
               <value.icon className={`w-16 h-16 ${value.color} mx-auto mb-6 drop-shadow-md`} />
               <h3 className="text-2xl font-bold text-gray-800 mb-4">{value.title}</h3>

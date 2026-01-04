@@ -3,7 +3,18 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+  SheetHeader,
+  SheetDescription,
+  SheetFooter,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 
 export const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -59,17 +70,17 @@ export const NavBar = () => {
         {/* Main Navbar */}
         <div
           className={`w-full max-w-7xl px-6 transition-all duration-300
-            ${scrolled ? "py-2" : "py-4"}
+            ${scrolled ? "py-3" : "py-4"}
             bg-green-400 lg:rounded-md flex items-center justify-between ${scrolled ? "text-gray-800" : "text-white"}`}
         >
           {/* Logo & School Name */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-linear-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+            <div className="p-3 bg-linear-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
               KJ
             </div>
             <div>
-              <h2 className="font-bold text-xl">Kabale Junior School</h2>
-              <p className={`text-sm ${scrolled ? "text-gray-600" : "text-gray-300"} opacity-90`}>
+              <h2 className="font-bold text-lg sm:text-xl">Kabale Junior School</h2>
+              <p className={`text-sm ${scrolled ? "text-gray-600" : "text-gray-400"} opacity-90`}>
                 Nurturing Young Hearts in Faith & Learning
               </p>
             </div>
@@ -100,13 +111,19 @@ export const NavBar = () => {
           </ul>
 
           {/* Mobile Menu */}
+
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger aria-label="Open Menu" className="lg:hidden text-white bg-none">
-              {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+            <SheetTrigger as asChild aria-label="Open Menu" className="lg:hidden text-white bg-none">
+              {isOpen ? <X className="w-8 h-8 bg-none" /> : <Menu className="w-8 h-8" />}
             </SheetTrigger>
 
-            <SheetContent side="right" className="w-80 bg-white">
-              <SheetTitle className="text-center font-bold text-blue-600 mb-8">Kabale Junior School</SheetTitle>
+            <SheetContent side="right" className="w-80 sm:w-80 bg-white">
+              <SheetTitle className="flex items-center justify-between px-3 font-bold text-blue-600 mb-8 mt-5">
+                <h3>Kabale Junior School</h3>
+                <SheetClose asChild>
+                  <X className="w-5 h-5  right-4 top-3" />
+                </SheetClose>
+              </SheetTitle>
 
               <nav className="flex flex-col gap-4 pl-7">
                 {navItems.map((item) => (
@@ -123,13 +140,15 @@ export const NavBar = () => {
                     {item.name}
                   </NavLink>
                 ))}
+              </nav>
 
+              <SheetFooter>
                 <Button asChild size="lg" className="mt-6 bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold">
                   <NavLink to="/admissions" onClick={() => setIsOpen(false)}>
                     Enroll Now
                   </NavLink>
                 </Button>
-              </nav>
+              </SheetFooter>
             </SheetContent>
           </Sheet>
         </div>

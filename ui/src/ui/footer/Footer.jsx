@@ -5,7 +5,7 @@ import { FaXTwitter, FaFacebookF, FaTiktok, FaInstagram } from "react-icons/fa6"
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white mt-10">
+    <footer className="bg-gray-900 text-white text-sm  w-full ">
       {/* Subtle Kabale hills overlay */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <img
@@ -24,8 +24,8 @@ export const Footer = () => {
                 KJ
               </div>
               <div>
-                <h3 className="text-2xl font-bold">Kabale Junior School</h3>
-                <p className="text-sm text-gray-400">Nurturing Young Hearts in Faith & Learning</p>
+                <h3 className="text-xl font-bold">Kabale Junior School</h3>
+                <p className=" text-gray-400">Nurturing Young Hearts in Faith & Learning</p>
               </div>
             </div>
             <p className="text-gray-400">
@@ -87,7 +87,7 @@ export const Footer = () => {
                   aria-label="Facebook"
                   className="bg-white/10 p-3 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition"
                 >
-                  <social.icon className="w-6 h-6" />
+                  <social.icon className="sm:w-6 sm:h-6 text-white" />
                 </a>
               ))}
             </div>

@@ -75,24 +75,24 @@ export const Gallery = () => {
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/70 to-black/50" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
-          <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-2xl">
+          <h2 className="text-2xl md:text-7xl font-bold text-white drop-shadow-2xl">
             Gallery – Moments at Kabale Junior School
-          </h1>
+          </h2>
         </div>
       </section>
 
       {/* Organized Photo Cards */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto p-6">
-          <p className="text-xl md:text-2xl text-center text-gray-700 mb-16 max-w-4xl mx-auto">
+          <p className=" md:text-2xl text-center text-gray-700 mb-16 max-w-4xl mx-auto">
             Capturing the joy, learning, faith, and friendships that make our school special every day.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-8">
             {galleryItems.map((item, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col"
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col w-xs sm:w-auto"
               >
                 <div className="overflow-hidden">
                   <img
@@ -102,7 +102,7 @@ export const Gallery = () => {
                   />
                 </div>
                 <div className="p-5 flex-1 flex items-center">
-                  <p className="text-center text-gray-800 font-medium text-lg">{item.caption}</p>
+                  <p className="text-center text-gray-800 font-medium ">{item.caption}</p>
                 </div>
               </div>
             ))}

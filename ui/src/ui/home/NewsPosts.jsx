@@ -32,19 +32,19 @@ const news = [
 
 export const NewsPosts = () => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 bg-gray-50 max-w-7xl mx-auto px-6">
+      <div className="">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Latest School News</h2>
           <p className="text-xl text-gray-700">Stay updated with what's happening at Kabale Junior</p>
         </div>
 
         {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-8">
           {news.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-xs sm:w-auto"
             >
               <img src={item.img} alt={item.title} className="w-full h-48 object-cover" />
               <div className="p-6">

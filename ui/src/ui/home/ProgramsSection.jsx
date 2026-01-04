@@ -9,14 +9,14 @@ export const ProgramsSection = () => {
     <section className="py-20 bg-linear-to-b from-yellow-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our Programs</h2>
-        <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-700 mb-12 text-center mx-auto">
           From playful beginnings in Nursery to strong academic foundations in Primary — every stage is filled with
           love, faith, and fun.
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-12">
           {/* Nursery Program */}
-          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 w-xs sm:w-auto">
             <div className="relative h-96">
               <img
                 src="https://www.rescue.org/sites/default/files/styles/widescreen_16x9_1280px_wide/public/2024-01/20231006_Uganda_DTaremwa_PlayMatters_Nursery-136-1200x800-5b2df79.jpg?itok=K--pf96M"
@@ -53,7 +53,7 @@ export const ProgramsSection = () => {
           </div>
 
           {/* Primary Program */}
-          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 w-xs sm:w-auto">
             <div className="relative h-96">
               <img
                 src="https://stireducation.org/wp-content/uploads/2024/07/Uganda-1.jpg"
