@@ -7,18 +7,20 @@ import { ProgramsSection } from "./ProgramsSection";
 import { NewsPosts } from "./NewsPosts";
 import { Events } from "./Events";
 import { Staff } from "./Staff";
+import { HomeSlider } from "./HomeSlider";
 
 export const Home = () => {
   return (
     <div className="">
       <Slider />
-        <About />
-        <CoreValues />
-        <WhyChooseUs />
-        <ProgramsSection />
-        <NewsPosts />
-        <Events />
-        <Staff />
-      </div>
+      {/* <HomeSlider /> */}
+      <About />
+      <CoreValues />
+      <WhyChooseUs />
+      <ProgramsSection />
+      <NewsPosts />
+      <Events />
+      <Staff />
+    </div>
   );
 };

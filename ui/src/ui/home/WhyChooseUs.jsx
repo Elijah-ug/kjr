@@ -44,46 +44,41 @@ const reasons = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-linear-to-b from-green-50 to-blue-50 px-6 sm:px-10 ">
-      <div className=" text-center">
+    <section className="py-20 flex flex-col items-center justify-center gap-7 px-6 sm:px-10  overflow-hidden ">
+      <div className="">
         <h2 className="text-2xl md:text-5xl font-bold  mb-6">Why Parents Choose Kabale Junior School</h2>
         <p className=" mb-12 sm:max-w-3xl mx-auto">
           More than just a school — we're a second home where your child thrives in faith, fun, and learning.
         </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center xl:grid-cols-5 gap-8">
-          {reasons.map((reason, index) => (
-            <div
-              key={index}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 w-xs sm:w-auto h-full"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={reason.img}
-                  alt={reason.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
-              </div>
-
-              <div className="p-6 text-center">
-                <reason.icon className={`w-12 h-12 ${reason.color} mx-auto mb-4 drop-shadow-md`} />
-                <h3 className=" font-bold mb-3">{reason.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{reason.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16 flex items-center justify-center">
-          <Button
-            asChild
-            size="lg"
-            className="bg-yellow-500 hover:bg-yellow-400 font-bold text-lg px-10 py-6 shadow-xl"
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center xl:grid-cols-5 gap-8">
+        {reasons.map((reason, index) => (
+          <div
+            key={index}
+            className="group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 w-xs sm:w-auto h-full"
           >
-            <NavLink to="/admissions">Start Your Child's Journey Today</NavLink>
-          </Button>
-        </div>
+            <div className="relative h-64 overflow-hidden">
+              <img
+                src={reason.img}
+                alt={reason.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+            </div>
+
+            <div className="p-6 text-center">
+              <reason.icon className={`w-12 h-12 ${reason.color} mx-auto mb-4 drop-shadow-md`} />
+              <h3 className=" font-bold mb-3">{reason.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{reason.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-16 flex items-center justify-center">
+        <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-400 font-bold text-lg px-10 py-6 shadow-xl">
+          <NavLink to="/admissions">Start Your Child's Journey Today</NavLink>
+        </Button>
       </div>
     </section>
   );

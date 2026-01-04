@@ -18,7 +18,8 @@ function App() {
       <NavBar />
 
       {/* Page Content */}
-      <main className="flex-1 mt-24  ">
+      
+      <main className=" mt-24 bg-gray-100 ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />

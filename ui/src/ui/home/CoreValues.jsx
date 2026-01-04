@@ -42,36 +42,35 @@ const values = [
 ];
 
 export const CoreValues = () => {
+  const bgImage =
+    "https://c8.alamy.com/comp/GHKXXA/african-school-children-in-rural-uganda-take-a-moment-during-morning-GHKXXA.jpg";
   return (
-    <section className="py-20 bg-linear-to-b from-blue-50 to-green-50 relative overflow-hidden">
+    <section
+      className="py-20 flex flex-col items-center justify-center gap-7 px-6 sm:px-10 overflow-hidden bg-white/60"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       {/* Background image - happy kids praying/assembly */}
-      <div className="absolute inset-0 opacity-20">
-        <img
-          src="https://c8.alamy.com/comp/GHKXXA/african-school-children-in-rural-uganda-take-a-moment-during-morning-GHKXXA.jpg"
-          alt="Children in prayer"
-          className="w-full h-full object-cover"
-        />
-      </div>
 
-      <div className="relative  px-6 sm:px-10 text-center">
+      <div className="flex flex-col items-center justify-center py-20 px-6 sm:px-10 text-white ">
         <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Core Values</h2>
-        <p className="mb-12 max-w-3xl mx-auto">
+        <p className="mb-12">
           At Kabale Junior School, we build character on a strong Christian foundation, guiding every child to grow in
           faith, wisdom, and love.
         </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 place-items-center lg:grid-cols-3 gap-8">
           {values.map((value, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 w-xs sm:w-auto h-full"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 w-full sm:max-w-sm max-w-72  h-full"
             >
               <value.icon className={`w-13 h-13 ${value.color} mx-auto mb-6 drop-shadow-md`} />
               <h3 className="text-xl font-bold mb-4">{value.title}</h3>
               <p className="text-gray-600 leading-relaxed">{value.desc}</p>
             </div>
           ))}
-        </div>
+        
       </div>
     </section>
   );

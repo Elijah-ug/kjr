@@ -25,9 +25,9 @@ const slides = [
 
 export const Slider = () => {
   return (
-    <section className="relative max-w-full overflow-x-hidden">
+    <section className="relative overflow-x-hidden">
       <Splide
-        className="max-w-full overflow-x-hidden"
+        className="w-full"
         options={{
           type: "fade",
           rewind: true,
@@ -43,21 +43,23 @@ export const Slider = () => {
         aria-label="Kabale Junior School Hero Slider"
       >
         {slides.map((slide, index) => (
-          <SplideSlide key={index} className="max-w-full overflow-hidden">
-            <div className="relative h-[90vh] max-w-full overflow-hidden">
-              {/* Background Image */}
-              <img src={slide.img} alt={slide.title} className="absolute inset-0 w-full h-full object-cover" />
+          <SplideSlide
+            key={index}
+            className="relative w-full h-[75svh] flex items-center justify-center text-center"
+            style={{
+              backgroundImage: `url(${slide.img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40" />
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-black/20" />
-
-              {/* Content */}
-              <div className="relative flex h-full items-center justify-center text-center px-4">
-                <div className=" absolute bottom-7 sm:max-w-4xl mx-auto">
-                  <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6">{slide.title}</h1>
-                  <p className="text-lg sm:text-xl md:text-3xl text-white">{slide.subtitle}</p>
-                </div>
-              </div>
+            {/* CONTENT WRAPPER (this is where padding lives) */}
+            <div className="absolute text-white w-full max-w-sm sm:max-w-5xl  sm:px-6 sm:mx-auto">
+              <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold">{slide.title}</h2>
+              <p className="text-base sm:text-xl md:text-3xl mt-3 leading-relaxed">{slide.subtitle}</p>
+            
             </div>
           </SplideSlide>
         ))}
