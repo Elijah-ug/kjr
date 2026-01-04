@@ -7,17 +7,17 @@ import { NavLink } from "react-router-dom";
 
 const slides = [
   {
-    img: "https://thumbs.dreamstime.com/b/african-children-studying-learning-working-together-african-classroom-raising-hands-writing-down-notes-looking-177878742.jpg", // Happy kids learning
+    img: "https://thumbs.dreamstime.com/b/african-children-studying-learning-working-together-african-classroom-raising-hands-writing-down-notes-looking-177878742.jpg",
     title: "Welcome to Kabale Junior School",
     subtitle: "Nurturing Young Hearts with Quality Education & Christian Values",
   },
   {
-    img: "https://media.holtinternational.org/wp-content/uploads/2023/12/Favor-web-1024x576.jpg", // Kids playing outdoors
+    img: "https://media.holtinternational.org/wp-content/uploads/2023/12/Favor-web-1024x576.jpg",
     title: "A Joyful Place to Grow",
     subtitle: "Play-Based Learning in a Safe & Loving Environment",
   },
   {
-    img: "https://www.shutterstock.com/image-photo/uganda-june-13-2017-group-260nw-786801310.jpg", // Kids in uniform smiling
+    img: "https://www.shutterstock.com/image-photo/uganda-june-13-2017-group-260nw-786801310.jpg",
     title: "Building Bright Futures",
     subtitle: "From Nursery to Primary – Excellence Starts Here",
   },
@@ -25,8 +25,9 @@ const slides = [
 
 export const Slider = () => {
   return (
-    <section className="relative h-screen max-h-[90vh] overflow-hidden">
+    <section className="relative max-w-full overflow-x-hidden">
       <Splide
+        className="max-w-full overflow-x-hidden"
         options={{
           type: "fade",
           rewind: true,
@@ -42,36 +43,19 @@ export const Slider = () => {
         aria-label="Kabale Junior School Hero Slider"
       >
         {slides.map((slide, index) => (
-          <SplideSlide key={index}>
-            <div className="relative h-screen max-h-[90vh] mt-16">
-              <img src={slide.img} alt={slide.title} className="w-full h-full object-cover" />
-              {/* Dark overlay for text readability */}
+          <SplideSlide key={index} className="max-w-full overflow-hidden">
+            <div className="relative h-[90vh] max-w-full overflow-hidden">
+              {/* Background Image */}
+              <img src={slide.img} alt={slide.title} className="absolute inset-0 w-full h-full object-cover" />
+
+              {/* Overlay */}
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-black/20" />
 
-              {/* Centered Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-                <div className="max-w-4xl">
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                    {slide.title}
-                  </h1>
-                  <p className="text-xl md:text-3xl text-white mb-10 drop-shadow-lg">{slide.subtitle}</p>
-                  <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                    <Button
-                      asChild
-                      size="lg"
-                      className="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold text-lg px-8 py-6 shadow-xl"
-                    >
-                      <NavLink to="/admissions">Enroll Your Child</NavLink>
-                    </Button>
-                    <Button
-                      asChild
-                      size="lg"
-                      variant="outline"
-                      className="border-white text-white hover:bg-white/20 font-bold text-lg px-8 py-6"
-                    >
-                      <NavLink to="/contact">Book a School Visit</NavLink>
-                    </Button>
-                  </div>
+              {/* Content */}
+              <div className="relative flex h-full items-center justify-center text-center px-4">
+                <div className=" absolute bottom-7 sm:max-w-4xl mx-auto">
+                  <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6">{slide.title}</h1>
+                  <p className="text-lg sm:text-xl md:text-3xl text-white">{slide.subtitle}</p>
                 </div>
               </div>
             </div>

@@ -10,16 +10,15 @@ import { Staff } from "./Staff";
 
 export const Home = () => {
   return (
-    <div>
+    <div className="">
       <Slider />
-      <About />
-      <CoreValues />
-      <WhyChooseUs />
-      <ProgramsSection />
-      <NewsPosts />
-      <Events />
-      <Staff/>
-    </div>
+        <About />
+        <CoreValues />
+        <WhyChooseUs />
+        <ProgramsSection />
+        <NewsPosts />
+        <Events />
+        <Staff />
+      </div>
   );
 };
-

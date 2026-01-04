@@ -27,21 +27,22 @@ export const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 bg-linear-to-b from-blue-50 to-green-50 w-full">
+     <div className="px-6 sm:px-10 grid gap-12 sm:gap-17">
+       {/* Mission & Vision */}
+      <section className="py-20 bg-linear-to-b from-blue-50 to-green-50 ">
         <div className=" px-6 grid md:grid-cols-2 gap-12 place-items-center">
-          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center w-xs sm:w-auto">
+          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center w-xs sm:w-auto h-full">
             <Church className="w-16 h-16 text-green-600 mx-auto mb-6" />
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Our Mission</h2>
+            <h2 className="text-2xl font-bold  mb-6">Our Mission</h2>
             <p className=" leading-relaxed">
               To provide quality Christian nursery and primary education that develops each child's spiritual, academic,
               social, and emotional potential in a safe, joyful, and loving environment.
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center w-xs sm:w-auto">
+          <div className="bg-white rounded-3xl p-10 shadow-2xl text-center w-xs sm:w-auto h-full">
             <Heart className="w-16 h-16 text-yellow-500 mx-auto mb-6" />
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Our Vision</h2>
+            <h2 className="text-2xl font-bold  mb-6">Our Vision</h2>
             <p className=" leading-relaxed">
               To raise confident, compassionate, and God-fearing leaders who will positively impact their families,
               communities, and the nation of Uganda.
@@ -51,7 +52,7 @@ export const About = () => {
       </section>
 
       {/* History */}
-      <section className="py-20 bg-white w-full text-gray-600 ">
+      <section className="py-20 bg-white w-full  ">
         <div className=" mx-auto px-6 text-center ">
           <h2 className="text-2xl md:text-5xl font-bold  mb-12">Our Journey</h2>
           <div className="grid md:grid-cols-2 place-items-center gap-12 items-center">
@@ -85,7 +86,7 @@ export const About = () => {
       <section className="py-20 bg-white w-full">
         <div className=" mx-auto px-6 text-center ">
           <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Teaching Staff</h2>
-          <p className=" mb-12 max-w-4xl mx-auto">
+          <p className=" mb-12 sm:max-w-4xl mx-auto">
             Our qualified, passionate, and caring teachers are committed to nurturing every child academically,
             spiritually, and socially.
           </p>
@@ -107,10 +108,10 @@ export const About = () => {
       </section>
 
       {/* Non Teaching Staff */}
-      <section className="py-20 bg-gray-50 w-full">
+      <section className="">
         <div className=" mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Non-Teaching Staff</h2>
-          <p className="mb-12 max-w-4xl mx-auto">
+          <p className="mb-12 sm:max-w-4xl mx-auto">
             Our support staff ensure a safe, clean, organized, and welcoming school environment every day.
           </p>
 
@@ -131,7 +132,7 @@ export const About = () => {
       </section>
 
       {/* Life at School */}
-      <section className="py-20 bg-gray-50 w-full">
+      <section className="">
         <div className=" mx-auto px-6">
           <h2 className="text-2xl md:text-5xl font-bold text-center text-gray-800 mb-12">
             Life at Kabale Junior School
@@ -164,7 +165,7 @@ export const About = () => {
                 caption: "Our beautiful Kabale surroundings that enrich learning and growth.",
               },
             ].map((item, index) => (
-              <figure key={index} className="relative group overflow-hidden rounded-2xl shadow-xl w-xs sm:w-auto">
+              <figure key={index} className="relative group overflow-hidden rounded-2xl shadow-xl w-xs sm:w-auto h-full">
                 <img
                   src={item.src}
                   alt={item.caption}
@@ -180,8 +181,8 @@ export const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-linear-to-r from-blue-600 to-green-600 text-white w-full">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className=" bg-linear-to-r from-blue-600 to-green-600 text-white py-3 rounded-t-2xl">
+        <div className="sm:max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-5xl font-bold mb-8">Ready to Join Our Family?</h2>
           <p className=" sm:text-xl mb-12">Come see why parents across Kabale trust us with their children's future.</p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -203,6 +204,7 @@ export const About = () => {
           </div>
         </div>
       </section>
+     </div>
     </div>
   );
 };

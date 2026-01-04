@@ -53,9 +53,9 @@ export const CoreValues = () => {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our Core Values</h2>
-        <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto">
+      <div className="relative  px-6 sm:px-10 text-center">
+        <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Core Values</h2>
+        <p className="mb-12 max-w-3xl mx-auto">
           At Kabale Junior School, we build character on a strong Christian foundation, guiding every child to grow in
           faith, wisdom, and love.
         </p>
@@ -64,10 +64,10 @@ export const CoreValues = () => {
           {values.map((value, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 w-xs sm:w-auto"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 w-xs sm:w-auto h-full"
             >
-              <value.icon className={`w-16 h-16 ${value.color} mx-auto mb-6 drop-shadow-md`} />
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">{value.title}</h3>
+              <value.icon className={`w-13 h-13 ${value.color} mx-auto mb-6 drop-shadow-md`} />
+              <h3 className="text-xl font-bold mb-4">{value.title}</h3>
               <p className="text-gray-600 leading-relaxed">{value.desc}</p>
             </div>
           ))}

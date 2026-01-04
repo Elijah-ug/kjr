@@ -4,10 +4,10 @@ export const Staff = () => {
   return (
     <div >
       {/* Our Dedicated Team */}
-      <section className="py-20 bg-linear-to-b from-green-50 to-blue-200 w-full">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-5xl font-bold text-gray-600 mb-12">Meet Our Dedicated Team</h2>
-          <p className=" text-gray-700 mb-12 max-w-3xl mx-auto">
+      <section className="py-20 bg-linear-to-b from-green-50 to-blue-200 w-full px-6 sm:px-10 text-center">
+        <div className="">
+          <h2 className="text-2xl md:text-5xl font-bold  mb-12">Meet Our Dedicated Team</h2>
+          <p className=" mb-12  ">
             Our qualified and passionate teachers are the heart of Kabale Junior School — committed to nurturing every
             child with care, faith, and excellence.
           </p>
@@ -21,9 +21,9 @@ export const Staff = () => {
                 className="w-full h-80 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800">Mrs. Grace Namara</h3>
-                <p className="text-yellow-600 font-semibold mb-2">Headteacher</p>
-                <p className="text-gray-600">20+ years experience in Christian education</p>
+                <h3 className=" font-bold text-lg">Mrs. Grace Namara</h3>
+                <p className="text-yellow-600  mb-2">Headteacher</p>
+                <p className="italic">20+ years experience in Christian education</p>
               </div>
             </div>
 
@@ -34,9 +34,9 @@ export const Staff = () => {
                 className="w-full h-80 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800">Mr. Gabriel Marghez</h3>
+                <h3 className="text-lg font-bold">Mr. Gabriel Marghez</h3>
                 <p className="text-yellow-600 font-semibold mb-2">Deputy Headteacher</p>
-                <p className="text-gray-600">Passionate about primary curriculum development</p>
+                <p className="italic">Passionate about primary curriculum development</p>
               </div>
             </div>
 
@@ -47,9 +47,9 @@ export const Staff = () => {
                 className="w-full h-80 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800">Ms. Sarah Atuhaire</h3>
+                <h3 className="text-lg font-bold ">Ms. Sarah Atuhaire</h3>
                 <p className="text-yellow-600 font-semibold mb-2">Nursery Coordinator</p>
-                <p className="text-gray-600">Expert in play-based early learning</p>
+                <p className="italic">Expert in play-based early learning</p>
               </div>
             </div>
 
@@ -61,9 +61,9 @@ export const Staff = () => {
                 className="w-full h-80 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800">Mr. Emmanuel Twesigye</h3>
+                <h3 className="text-lg font-bold ">Mr. Emmanuel Twesigye</h3>
                 <p className="text-yellow-600 font-semibold mb-2">P4 Class Teacher</p>
-                <p className="text-gray-600">Dedicated to building strong foundations</p>
+                <p className="italic">Dedicated to building strong foundations</p>
               </div>
             </div>
           </div>

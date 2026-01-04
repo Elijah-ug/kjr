@@ -18,7 +18,7 @@ function App() {
       <NavBar />
 
       {/* Page Content */}
-      <main className="flex-1 mt-30">
+      <main className="flex-1 mt-24  ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />

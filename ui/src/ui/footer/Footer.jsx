@@ -5,15 +5,15 @@ import { FaXTwitter, FaFacebookF, FaTiktok, FaInstagram } from "react-icons/fa6"
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white text-sm  w-full ">
+    <footer className="bg-gray-900 text-white text-sm ">
       {/* Subtle Kabale hills overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
+      {/* <div className="absolute inset-0 opacity-10 pointer-events-none">
         <img
           src="https://c8.alamy.com/comp/FBC81H/morning-fog-in-the-mountains-on-lake-bunyonyi-kabale-district-uganda-FBC81H.jpg"
           alt="Kabale hills"
           className="w-full h-full object-cover"
         />
-      </div>
+      </div> */}
 
       <div className="relative mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
