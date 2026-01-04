@@ -9,7 +9,7 @@ export const About = () => {
     "https://travel.com/wp-content/uploads/2025/11/Scenic-view-of-Kabales-rolling-hills-and-terraced-landscapes-with-mist-rising-in-the-morning.webp";
   return (
     <section
-      className="flex flex-col items-center justify-center px-6"
+      className="flex flex-col items-center justify-center px-6 py-7 "
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -18,10 +18,10 @@ export const About = () => {
       }}
     >
       {/* Content */}
-      <div className=" text-center">
+      <div className=" text-center ">
         <h2 className="text-2xl md:text-5xl font-bold mb-6">Welcome to Kabale Junior School</h2>
 
-        <p className=" leading-relaxed">
+        <p className=" leading-relaxed py-3 my-3 sm:max-w-3xl sm:mx-auto bg-white/50">
           Located in the heart of Kabale, we are a Christian nursery and primary school dedicated to providing quality,
           play-based education in a safe, loving, and faith-filled environment. Our mission is to nurture every child's
           spiritual, academic, social, and emotional growth — helping them become confident, compassionate leaders of
@@ -46,10 +46,12 @@ export const About = () => {
         ))}
       </div>
       {/* CTA */}
-      <NavLink to="/about" className="flex items-center p-3 rounded-xl bg-amber-500 ">
+      <div className="flex items-center justify-center">
+        <NavLink to="/about" className="flex items-center justify-center p-3 rounded-xl bg-amber-500 ">
         <BookOpen className="w-6 h-6" />
         Learn More About Us
       </NavLink>
+      </div>
        </div>
     </section>
   );
