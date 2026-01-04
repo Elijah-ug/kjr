@@ -27,7 +27,7 @@ export const About = () => {
         </div>
       </section>
 
-     <div className="px-6 sm:px-10 grid gap-12 sm:gap-17">
+     <div className=" sm:px-10 grid gap-12 sm:gap-17">
        {/* Mission & Vision */}
       <section className="py-20 bg-linear-to-b from-blue-50 to-green-50 ">
         <div className=" px-6 grid md:grid-cols-2 gap-12 place-items-center">
@@ -181,7 +181,7 @@ export const About = () => {
       </section>
 
       {/* CTA */}
-      <section className=" bg-linear-to-r from-blue-600 to-green-600 text-white py-3 rounded-t-2xl">
+      <section className="w-xs mx-auto bg-linear-to-r from-blue-600 to-green-600 text-white py-3 rounded-t-2xl">
         <div className="sm:max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-5xl font-bold mb-8">Ready to Join Our Family?</h2>
           <p className=" sm:text-xl mb-12">Come see why parents across Kabale trust us with their children's future.</p>

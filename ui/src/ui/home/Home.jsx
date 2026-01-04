@@ -13,7 +13,6 @@ export const Home = () => {
   return (
     <div className="">
       <Slider />
-      {/* <HomeSlider /> */}
       <About />
       <CoreValues />
       <WhyChooseUs />

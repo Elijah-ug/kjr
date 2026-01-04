@@ -25,7 +25,7 @@ const slides = [
 
 export const Slider = () => {
   return (
-    <section className="relative overflow-x-hidden">
+    <section className="w-full overflow-x-hidden ">
       <Splide
         className="w-full"
         options={{
@@ -59,7 +59,6 @@ export const Slider = () => {
             <div className="absolute text-white w-full max-w-sm sm:max-w-5xl  sm:px-6 sm:mx-auto">
               <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold">{slide.title}</h2>
               <p className="text-base sm:text-xl md:text-3xl mt-3 leading-relaxed">{slide.subtitle}</p>
-            
             </div>
           </SplideSlide>
         ))}

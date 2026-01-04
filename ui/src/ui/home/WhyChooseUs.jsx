@@ -44,10 +44,10 @@ const reasons = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="py-20 flex flex-col items-center justify-center gap-7 px-6 sm:px-10  overflow-hidden ">
-      <div className="">
-        <h2 className="text-2xl md:text-5xl font-bold  mb-6">Why Parents Choose Kabale Junior School</h2>
-        <p className=" mb-12 sm:max-w-3xl mx-auto">
+    <section className="flex flex-col items-center justify-center ">
+      <div className="text-center">
+        <h2 className="text-xl md:text-5xl font-bold  mb-6">Why Parents Choose Kabale Junior School</h2>
+        <p className=" leading-relaxed">
           More than just a school — we're a second home where your child thrives in faith, fun, and learning.
         </p>
       </div>
@@ -55,7 +55,7 @@ export const WhyChooseUs = () => {
         {reasons.map((reason, index) => (
           <div
             key={index}
-            className="group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 w-xs sm:w-auto h-full"
+            className="group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 w-full max-w-64 sm:max-w-sm h-full"
           >
             <div className="relative h-64 overflow-hidden">
               <img

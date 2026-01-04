@@ -15,7 +15,7 @@ export const Footer = () => {
         />
       </div> */}
 
-      <div className="relative mx-auto px-6 py-16">
+      <div className=" mx-auto max-w-7xl px-6 sm:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo & About */}
           <div className="space-y-6">

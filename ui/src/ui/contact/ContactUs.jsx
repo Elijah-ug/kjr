@@ -29,7 +29,7 @@ export const ContactUs = () => {
       </section>
 
       {/* Contact Info + Form */}
-      <div className="grid px-6 gap-12 sm:gap-17 py-13  sm:px-10">
+      <div className="grid  gap-12 sm:gap-17 py-13  ">
         <section className=" bg-linear-to-b ">
           <div className=" mx-auto px-6 grid md:grid-cols-2 gap-12 pt-3">
             {/* Contact Details */}

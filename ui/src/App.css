@@ -8,9 +8,17 @@ html,
 body {
   margin: 0;
   padding: 0;
-  max-width: 100%;
-  overflow-x: hidden;
+}
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+body {
+  @apply bg-background bg-foreground;
+}
+* {
+  outline: 1px solid red;
 }
 
 .active {

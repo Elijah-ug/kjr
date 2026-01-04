@@ -14,11 +14,11 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <NavBar />
 
       {/* Page Content */}
-      
+
       <main className=" mt-24 bg-gray-100 ">
         <Routes>
           <Route path="/" element={<Home />} />
