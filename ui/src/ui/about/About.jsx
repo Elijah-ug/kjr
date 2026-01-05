@@ -21,7 +21,7 @@ export const About = () => {
               About Kabale Junior School
             </h1>
             <p className="text-2xl md:text-3xl text-white drop-shadow-lg">
-              Nurturing Young Hearts & Minds in the Heart of Kabale Since [Year]
+              Nurturing Young Hearts & Minds in the Heart of Kabale Since 2010
             </p>
           </div>
         </div>
@@ -181,7 +181,7 @@ export const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="w-xs mx-auto bg-linear-to-r from-blue-600 to-green-600 text-white py-3 rounded-t-2xl">
+      <section className="w-full sm:w-full mx-auto bg-linear-to-r from-blue-600 to-green-600 text-white py-3 sm:rounded-t-2xl">
         <div className="sm:max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-5xl font-bold mb-8">Ready to Join Our Family?</h2>
           <p className=" sm:text-xl mb-12">Come see why parents across Kabale trust us with their children's future.</p>

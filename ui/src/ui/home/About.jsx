@@ -9,7 +9,7 @@ export const About = () => {
     "https://travel.com/wp-content/uploads/2025/11/Scenic-view-of-Kabales-rolling-hills-and-terraced-landscapes-with-mist-rising-in-the-morning.webp";
   return (
     <section
-      className="flex flex-col items-center justify-center w-full overflow-x-hidden"
+      className="flex flex-col items-center justify-center w-full overflow-x-hidden px-6 py-13"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",

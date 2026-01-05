@@ -2,7 +2,7 @@ import React from "react";
 
 export const Staff = () => {
   return (
-    <div >
+    <div>
       {/* Our Dedicated Team */}
       <section className="py-20 bg-linear-to-b from-green-50 to-blue-200 w-full px-6 sm:px-10 text-center">
         <div className="">
@@ -14,20 +14,20 @@ export const Staff = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-8">
             {/* Example Staff Cards - Replace with real photos/names */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-xs sm:w-auto">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-xs sm:w-auto h-full">
               <img
                 src="https://c8.alamy.com/comp/3DBB514/middle-aged-black-man-sitting-at-desk-reading-documents-working-with-laptop-and-tablet-in-modern-office-appearing-focused-and-professional-school-principal-performing-administrative-tasks-3DBB514.jpg"
                 alt="Mr. Declan Rice"
                 className="w-full h-80 object-cover"
               />
               <div className="p-6">
-                <h3 className=" font-bold text-lg">Mrs. Grace Namara</h3>
+                <h3 className=" font-bold text-lg">Mr. Martin Odegard</h3>
                 <p className="text-yellow-600  mb-2">Headteacher</p>
                 <p className="italic">20+ years experience in Christian education</p>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-30 w-xs sm:w-auto0">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-xs sm:w-auto h-full">
               <img
                 src="https://img.freepik.com/free-photo/technology-business-occupation-concept_343059-3306.jpg?semt=ais_hybrid&w=740&q=80"
                 alt="Mr. John Mugisha - Deputy Head"
@@ -40,10 +40,10 @@ export const Staff = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-xs sm:w-auto">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-xs sm:w-auto h-full">
               <img
                 src="https://media.gettyimages.com/id/2225770859/photo/confident-professional-leading-team-meeting-with-presentation-in-modern-office.jpg?s=612x612&w=gi&k=20&c=cWV_R_CP8WPMIpOi2Z3EMzOyF1_A-8riE5cNIEyW84k="
-                alt="Ms. Sarah Atuhaire - Nursery Coordinator"
+                alt="Mr. Bukayo Saka"
                 className="w-full h-80 object-cover"
               />
               <div className="p-6">
@@ -54,14 +54,14 @@ export const Staff = () => {
             </div>
 
             {/* Add more cards as needed */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-xs sm:w-auto">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-xs sm:w-auto h-full">
               <img
                 src="https://thumbs.dreamstime.com/b/portrait-middle-aged-black-man-smiling-sitting-office-desk-confidently-hands-clasped-wearing-glasses-appearing-as-424195571.jpg"
                 alt="Mr. Emmanuel Twesigye - Class Teacher"
                 className="w-full h-80 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-lg font-bold ">Mr. Emmanuel Twesigye</h3>
+                <h3 className="text-lg font-bold ">Mr. Gabriel Martineli Twesigye</h3>
                 <p className="text-yellow-600 font-semibold mb-2">P4 Class Teacher</p>
                 <p className="italic">Dedicated to building strong foundations</p>
               </div>

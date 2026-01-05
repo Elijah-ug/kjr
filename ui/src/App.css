@@ -18,7 +18,7 @@ body {
   @apply bg-background bg-foreground;
 }
 * {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 .active {

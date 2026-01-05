@@ -44,10 +44,10 @@ const reasons = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="flex flex-col items-center justify-center ">
+    <section className="flex flex-col items-center justify-center py-13">
       <div className="text-center">
         <h2 className="text-xl md:text-5xl font-bold  mb-6">Why Parents Choose Kabale Junior School</h2>
-        <p className=" leading-relaxed">
+        <p className=" leading-relaxed py-3">
           More than just a school — we're a second home where your child thrives in faith, fun, and learning.
         </p>
       </div>

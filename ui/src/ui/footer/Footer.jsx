@@ -81,8 +81,9 @@ export const Footer = () => {
                 { href: "/", icon: FaXTwitter },
                 { href: "/", icon: FaTiktok },
                 { href: "/", icon: FaInstagram },
-              ].map((social) => (
+              ].map((social, i) => (
                 <a
+                  key={i}
                   href={social.href}
                   aria-label="Facebook"
                   className="bg-white/10 p-3 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition"
