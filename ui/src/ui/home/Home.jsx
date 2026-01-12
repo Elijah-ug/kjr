@@ -13,13 +13,15 @@ export const Home = () => {
   return (
     <div className="">
       <Slider />
-      <About />
+      <div className="">
+        <About />
       <CoreValues />
       <WhyChooseUs />
       <ProgramsSection />
       <NewsPosts />
       <Events />
       <Staff />
+      </div>
     </div>
   );
 };

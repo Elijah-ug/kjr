@@ -23,6 +23,8 @@ body {
 
 .active {
   background-color: #8a2be8;
+  color: #fff;
+  text-align: center;
 }
 
 @theme inline {

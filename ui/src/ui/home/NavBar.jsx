@@ -68,7 +68,7 @@ export const NavBar = () => {
       >
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
-          <div className="p-3 bg-gradient-to-br from-blue-500 to-green-500 rounded-full font-bold text-xl text-white">
+          <div className="p-3 bg-linear-to-br from-blue-500 to-green-500 rounded-full font-bold text-xl text-white">
             KJ
           </div>
           <div>
@@ -101,7 +101,7 @@ export const NavBar = () => {
         </ul>
 
         {/* Mobile Menu */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <Sheet open={isOpen} onOpenChange={setIsOpen} >
           <SheetTrigger asChild className="lg:hidden">
             {isOpen ? (
               <X className={`w-8 h-8 ${scrolled ? "text-gray-800" : "text-white"}`} />
@@ -110,14 +110,14 @@ export const NavBar = () => {
             )}
           </SheetTrigger>
 
-          <SheetContent side="right" className="w-80 bg-white">
-            <nav className="flex flex-col gap-4 mt-10">
+          <SheetContent side="right" className="w-80  bg-white">
+            <nav className="flex flex-col gap-4 px-3 mt-10">
               {navItems.map((item) => (
                 <NavLink
                   key={item.name}
                   to={item.to}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg text-gray-700 hover:text-blue-600"
+                  className="text-lg text-gray-700 rounded-full hover:text-blue-600 px-3 w-32"
                 >
                   {item.name}
                 </NavLink>

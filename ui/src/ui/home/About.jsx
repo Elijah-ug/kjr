@@ -21,7 +21,7 @@ export const About = () => {
       <div className=" text-center max-w-7xl">
         <h2 className="text-2xl md:text-5xl font-bold mb-6">Welcome to Kabale Junior School</h2>
 
-        <p className=" leading-relaxed py-3 my-3 sm:max-w-3xl mx-auto bg-white/50">
+        <p className=" leading-relaxed py-3 my-3 sm:max-w-3xl mx-auto bg-white/40 ">
           Located in the heart of Kabale, we are a Christian nursery and primary school dedicated to providing quality,
           play-based education in a safe, loving, and faith-filled environment. Our mission is to nurture every child's
           spiritual, academic, social, and emotional growth — helping them become confident, compassionate leaders of

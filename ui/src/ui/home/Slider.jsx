@@ -53,10 +53,10 @@ export const Slider = () => {
             }}
           >
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/50" />
 
             {/* CONTENT WRAPPER (this is where padding lives) */}
-            <div className="absolute text-white w-full max-w-sm sm:max-w-5xl  sm:px-6 sm:mx-auto">
+            <div className="absolute text-white w-full max-w-sm px-3 sm:max-w-5xl  sm:px-6 sm:mx-auto  ">
               <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold">{slide.title}</h2>
               <p className="text-base sm:text-xl md:text-3xl mt-3 leading-relaxed">{slide.subtitle}</p>
             </div>
