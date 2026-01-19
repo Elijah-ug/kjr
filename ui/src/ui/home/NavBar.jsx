@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { useGetAdminQuery } from "../state/features/admin";
 
 export const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,13 +30,15 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const { data, isLoading } = useGetAdminQuery();
+  console.log("Data here==>", data);
   const navItems = [
     { name: "Home", to: "/" },
     { name: "About Us", to: "/about" },
-    { name: "Programs", to: "/programs" },
-    { name: "Admissions", to: "/admissions" },
+    { name: "Admission", to: "/admission" },
     { name: "Gallery", to: "/gallery" },
     { name: "Contact", to: "/contact" },
+    { name: "Login", to: "/login" },
   ];
 
   const activeClass = "text-yellow-500 font-semibold";
@@ -84,14 +87,14 @@ export const NavBar = () => {
           {navItems.map((item) => (
             <NavLink
               key={item.name}
-              to={item.to}
+              to={data && item.to === "/login" ? "/dashboard" : item.to}
               className={({ isActive }) =>
                 isActive
                   ? `${activeClass} bg-violet-300 px-3 py-1 rounded-full`
                   : `${inactiveClass} px-3 py-1 rounded-full hover:bg-violet-300`
               }
             >
-              {item.name}
+              {data && item.name === "Login" ? "Dashbard" : item.name}
             </NavLink>
           ))}
 
@@ -101,7 +104,7 @@ export const NavBar = () => {
         </ul>
 
         {/* Mobile Menu */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen} >
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="lg:hidden">
             {isOpen ? (
               <X className={`w-8 h-8 ${scrolled ? "text-gray-800" : "text-white"}`} />
@@ -115,11 +118,11 @@ export const NavBar = () => {
               {navItems.map((item) => (
                 <NavLink
                   key={item.name}
-                  to={item.to}
+                  to={data && item.to === "/login" ? "/dashboard" : item.to}
                   onClick={() => setIsOpen(false)}
                   className="text-lg text-gray-700 rounded-full hover:text-blue-600 px-3 w-32"
                 >
-                  {item.name}
+                  {data && item.name === "Login" ? "Dashbard" : item.name}
                 </NavLink>
               ))}
             </nav>

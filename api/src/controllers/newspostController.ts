@@ -2,9 +2,13 @@ import { prisma } from "config/client";
 import { Request, Response } from "express";
 import { eventsValidator, updateEventsValidator } from "validators/validate";
 
-export const store = async (req: Request, res: Response) => {
+interface AuthenticatedRequest extends Request {
+  admin?: string | object | any;
+}
+
+export const store = async (req: AuthenticatedRequest, res: Response) => {
   try {
-    const id = Number(req.params.id);
+    const id = req.admin.id
     const parsed = eventsValidator.safeParse(req.body);
     if (!parsed.success) {
       return res.status(400).json({ message: "Invalid data", error: parsed.error });

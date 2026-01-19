@@ -3,7 +3,12 @@ import z from "zod";
 export const adminValidator = z.object({
   name: z.string().min(3).max(100),
   email: z.email(),
-  role: z.string().min(3).max(20),
+  role: z.string().min(3).max(20).default("admin"),
+  password: z.string().min(6),
+});
+
+export const adminLoginValidator = z.object({
+  email: z.email(),
   password: z.string().min(6),
 });
 
