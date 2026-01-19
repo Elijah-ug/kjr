@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Admin {
+  id        Int        @id @default(autoincrement())
+  name      String
+  email     String     @unique
+  role      String?    @default("admin")
+  password  String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime?
+  deletedAt DateTime?
+  newsPosts NewsPost[]
+  events    Event[]
+  galleries Gallery[]
+}
+
+model NewsPost {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  picurl      String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime?
+  deletedAt   DateTime?
+  admin       Admin     @relation(fields: [adminId], references: [id])
+  adminId     Int
+}
+
+model Event {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  picurl      String?
+  date        DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime?
+  deletedAt   DateTime?
+  admin       Admin     @relation(fields: [adminId], references: [id])
+  adminId     Int
+}
+
+model Message {
+  id          Int       @id @default(autoincrement())
+  name        String
+  email       String
+  message     String
+  readAt      DateTime?
+  submittedAt DateTime  @default(now())
+}
+
+model Gallery {
+  id          Int       @id @default(autoincrement())
+  picurl      String
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime?
+  deletedAt   DateTime?
+  admin       Admin     @relation(fields: [adminId], references: [id])
+  adminId     Int
+}
+
+model ApplicantBio {
+  id                  Int                  @id @default(autoincrement())
+  firstName           String
+  lastName            String
+  otherName           String
+  dob                 DateTime
+  gender              String
+  nationality         String
+  religion            String
+  idPhoto             String
+  lin                 String
+  parentBios          ParentBio[]
+  health              Health[]
+  academicBackgrounds AcademicBackground[]
+  applications        Application[]
+}
+
+model ParentBio {
+  id                 Int          @id @default(autoincrement())
+  fullName           String
+  nationality        String
+  nin                String
+  homeAddress        String
+  residence          String
+  relationship       String
+  primaryContact     String
+  alternativeContact String?
+  occupation         String
+  idfrontpic         String
+  idbackpic          String
+  student            ApplicantBio @relation(fields: [applicantId], references: [id])
+  applicantId        Int
+}
+
+model Health {
+  id                    Int          @id @default(autoincrement())
+  bloodGroup            String
+  allergyStatus         Boolean
+  allergies             String?
+  disability            String       @default("none")
+  disabilityDetails     String?
+  currentIllness        String
+  emergencyContactName  String
+  emergencyContactPhone String
+  student               ApplicantBio @relation(fields: [applicantId], references: [id])
+  applicantId           Int
+}
+
+model AcademicBackground {
+  id                 Int          @id @default(autoincrement())
+  prevSchool         String
+  schoolType         String
+  lastClassCompleted String
+  yearCompleted      String
+  reasonForLeaving   String
+  prevAdminRemarks   String?
+  reportCardpicUrl   String?
+  student            ApplicantBio @relation(fields: [applicantId], references: [id])
+  applicantId        Int
+}
+
+model Application {
+  id          Int          @id @default(autoincrement())
+  status      String       @default("pending")
+  submittedAt DateTime     @default(now())
+  student     ApplicantBio @relation(fields: [applicantId], references: [id])
+  applicantId Int
+}

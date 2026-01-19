@@ -1,0 +1,45 @@
+import z from "zod";
+
+export const adminValidator = z.object({
+  name: z.string().min(3).max(100),
+  email: z.email(),
+  role: z.string().min(3).max(20),
+  password: z.string().min(6),
+});
+
+export const updateAdminValidator = z.object({
+  name: z.string().min(3).max(100).optional(),
+  email: z.email().optional(),
+  role: z.string().min(3).max(20).optional(),
+  password: z.string().min(6).optional(),
+});
+
+export const eventsValidator = z.object({
+  title: z.string().min(3).max(100),
+  description: z.string().min(3).max(250),
+  picurl: z.string(),
+  date: z.date(),
+  adminId: z.number(),
+});
+
+export const updateEventsValidator = z.object({
+  title: z.string().min(3).max(100),
+  description: z.string().min(3).max(250),
+  picurl: z.string(),
+  date: z.date(),
+  adminId: z.number(),
+});
+
+export const newsValidator = z.object({
+  title: z.string().min(3).max(100),
+  description: z.string().min(3).max(250),
+  picurl: z.string(),
+  adminId: z.number(),
+});
+
+export const updateNewsValidator = z.object({
+  title: z.string().min(3).max(100).optional(),
+  description: z.string().min(3).max(250).optional(),
+  picurl: z.string().optional(),
+  adminId: z.number(),
+});
