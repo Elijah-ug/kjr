@@ -54,7 +54,7 @@ export const PostEvents = () => {
   // console.log(localStorage.getItem("token"))
   // const []
   return (
-    <div className="flex flex-col justify-center  items-center gap-5 px-7 py-7 max-w-7xl mx-auto">
+    <div className="flex flex-col justify-center  items-center gap-5 px-6">
       <Card
         className="  w-xs sm:w-lg lg:w-xl
       bg-linear-to-br from-gray-700 to-gray-800

@@ -18,6 +18,8 @@ import { PostEvents } from "./ui/admin/PostEvents";
 import { PostNews } from "./ui/admin/PostNews";
 import { PostGalary } from "./ui/admin/PostGalary";
 import { Messages } from "./ui/admin/Messages";
+import { ToastContainer } from "react-toastify";
+import { Notifications } from "./ui/admin/Notifications";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -42,7 +44,7 @@ function App() {
               <Route path="profile" element={<Bio />} />
               <Route path="post-event" element={<PostEvents />} />
               <Route path="post-news" element={<PostNews />} />
-              <Route path="post-image" element={<PostGalary />} />
+              <Route path="notifications" element={<Notifications />} />
               <Route path="messages" element={<Messages />} />
             </Route>
           </Routes>
@@ -50,6 +52,17 @@ function App() {
       </div>
 
       <Footer />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
     </div>
   );
 }

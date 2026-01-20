@@ -6,9 +6,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Spinner } from "@/components/ui/spinner";
 import { useLoginAdminMutation } from "../state/features/admin";
+import { toast } from "react-toastify";
 
 export const Login = () => {
-  const [login, { isLoading: logLoading }] = useLoginAdminMutation();
+  const [login, { isLoading: logLoading, error: newErr }] = useLoginAdminMutation();
   const [info, setInfo] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
@@ -16,15 +17,14 @@ export const Login = () => {
     e.preventDefault();
     try {
       console.log("info==>", info);
-      if (!info.email && !info.password) {
-        console.log("You have some info missing");
-      }
       const res = await login(info).unwrap();
-      // const token = await res?.data?.token;
-      // localStorage.setItem("token", token);
-      console.log("res==>", res);
+      const token = await res?.token;
+      localStorage.setItem("token", token);
+
+      console.log("token==>", token);
+      toast.success("You've logged in");
       // 🔥 force reload of auth state
-      // navigate("/dashboard", { replace: true });
+      navigate("/dashboard", { replace: true });
       return res;
     } catch (error) {
       console.log("Login Error==>", error.message);

@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 export const eventQueries= createApi({
-    reducerPath:"admin",
+    reducerPath:"events",
     baseQuery: fetchBaseQuery({baseUrl: import.meta.env.VITE_EVENTS_BASE_URL,
         prepareHeaders:(headers)=>{
             const token = localStorage.getItem("token")

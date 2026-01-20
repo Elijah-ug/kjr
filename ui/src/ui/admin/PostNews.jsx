@@ -42,7 +42,7 @@ export const PostNews = () => {
     }
   };
   return (
-    <div className="flex flex-col justify-center  items-center gap-5 px-7 py-7 max-w-7xl mx-auto">
+    <div className="flex flex-col justify-center  items-center gap-5 px-6 lg:px-10 py-7 ">
       <Card
         className="  w-xs sm:w-lg lg:w-xl
       bg-linear-to-br from-gray-700 to-gray-800

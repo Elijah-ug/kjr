@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 export const newsQueries= createApi({
-    reducerPath:"admin",
+    reducerPath:"news",
     baseQuery: fetchBaseQuery({baseUrl: import.meta.env.VITE_NEWS_BASE_URL,
         prepareHeaders:(headers)=>{
             const token = localStorage.getItem("token")
