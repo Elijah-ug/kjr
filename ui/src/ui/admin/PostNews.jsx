@@ -5,15 +5,16 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useGetNewsQuery, usePostNewsMutation } from "../state/features/news";
+import { useGetNewsQuery, usePostNewsMutation, useUpdateNewsMutation } from "../state/features/news";
 import { useUpdateAdminMutation } from "../state/features/admin";
+import { Spinner } from "@/components/ui/spinner";
 
 export const PostNews = () => {
   const { id } = useParams();
   const postId = parseInt(id);
   const { data, isLoading: LoadNews, error: newsErr } = useGetNewsQuery(postId, { skip: !id });
 
-  const [update, { isLoading: LoadNewsUpdate, error: newsUpdateErr }] = useUpdateAdminMutation();
+  const [update, { isLoading: LoadNewsUpdate, error: newsUpdateErr }] = useUpdateNewsMutation();
 
   const [news, setNews] = useState({ title: "", description: "" });
   const [newsPost, { isLoading, error }] = usePostNewsMutation();
@@ -24,6 +25,7 @@ export const PostNews = () => {
       setNews({ title: data.post.title, description: data.post.description });
     }
   }, [data]);
+  console.log("News data ==>", data);
   const handlePostNews = async (e) => {
     e.preventDefault();
     try {
@@ -35,7 +37,7 @@ export const PostNews = () => {
       } else {
         const res = await newsPost(news);
         console.log("data==>", res);
-        return navigate("/");
+        return res;
       }
     } catch (error) {
       return console.log("Error==>", error);
@@ -43,14 +45,7 @@ export const PostNews = () => {
   };
   return (
     <div className="flex flex-col justify-center  items-center gap-5 px-6 lg:px-10 py-7 ">
-      <Card
-        className="  w-xs sm:w-lg lg:w-xl
-      bg-linear-to-br from-gray-700 to-gray-800
-      border border-white/10
-      text-gray-200
-      rounded-3xl
-      shadow-xl py-10"
-      >
+      <Card className="  w-xs sm:w-lg lg:w-xlrounded-3xlshadow-xl py-10">
         <CardHeader>
           <CardTitle className="">Add News Post</CardTitle>
         </CardHeader>
@@ -78,20 +73,20 @@ export const PostNews = () => {
                   onChange={(e) => setNews({ ...news, description: e.target.value })}
                 />
               </div>
-              <div className="grid gap-2">
+              {/* <div className="grid gap-2">
                 <Label htmlFor="pic">Image</Label>
                 <Input
                   id="file"
                   type="file"
                   className="bg-gray-900/50 border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 />
-              </div>
+              </div> */}
               <Button
                 type="submit"
                 className="w-full rounded-full bg-blue-500 hover:bg-blue-400 shadow-lg hover:shadow-blue-500/40
      transition-all duration-300"
               >
-                Publish News
+                {LoadNewsUpdate || isLoading ? <Spinner className="size-8" /> : "Publish News Post"}
               </Button>
             </div>
           </form>

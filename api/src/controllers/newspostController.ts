@@ -1,6 +1,6 @@
 import { prisma } from "config/client";
 import { Request, Response } from "express";
-import { eventsValidator, updateEventsValidator } from "validators/validate";
+import { newsValidator, updateEventsValidator } from "validators/validate";
 
 interface AuthenticatedRequest extends Request {
   admin?: string | object | any;
@@ -8,16 +8,18 @@ interface AuthenticatedRequest extends Request {
 
 export const store = async (req: AuthenticatedRequest, res: Response) => {
   try {
-    const id = req.admin.id
-    const parsed = eventsValidator.safeParse(req.body);
+    const id = req.admin.id;
+    console.log("Id ==>", id);
+    const parsed: any = newsValidator.safeParse(req.body);
     if (!parsed.success) {
+      console.log("Parsed error==>", parsed.error);
       return res.status(400).json({ message: "Invalid data", error: parsed.error });
     }
-    const { adminId } = parsed.data;
-    if (!adminId) return res.status(404).json({ message: "404, Admin not found" });
-    const newAdmin = await prisma.event.create({ data: { ...parsed.data, adminId: id } });
-    console.log("admin added to db==>", newAdmin);
-    return res.status(200).json({ message: "Created admin!", newAdmin });
+
+    if (!id) return res.status(404).json({ message: "404, Admin not found" });
+    const news = await prisma.event.create({ data: { ...parsed.data, adminId: id } });
+    console.log("news posted==>", news);
+    return res.status(200).json({ message: "Created admin!", news });
   } catch (error) {
     console.log("Error==>", error);
     return res.status(500).json({ err: error, message: "500 ISE" });

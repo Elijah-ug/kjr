@@ -10,6 +10,6 @@ export const fadeUp = {
 export const jwtToken=localStorage.getItem("token")
   
 export const formatDate=(date)=>{
-const dd= date? new Date(date).toISOString().split("T")[0]: "N/A"
+const dd= date? new Date(date) : "N/A"
 return dd
 }

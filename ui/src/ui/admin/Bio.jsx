@@ -1,66 +1,67 @@
-import React, { useState } from "react";
+import React from "react";
 import { useGetAdminQuery } from "../state/features/admin";
+import { User, ShieldCheck, Mail } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export const Bio = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { data, isLoading: loginLoading, error } = useGetAdminQuery(undefined, { refetchOnMountOrArgChange: true });
-  console.log("data for logged ==>", data);
+  const { data } = useGetAdminQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  });
 
   const handleLogout = () => {
-    const token = localStorage.getItem("token");
-    if (!token) return;
     localStorage.removeItem("token");
     window.location.href = "/";
-    return navigate("/");
   };
+
+  const admin = data?.currentAdmin;
+
   return (
-    <div>
-      {" "}
-      <div className="flex justify-end items-center gap-3 ">
-        <div className="flex flex-col items-end sm:items-center gap-5 sm:w-sm">
-          <div className="flex items-center gap-3">
-            <div className="relative bg-gray-500 p-2 rounded-full cursor-pointer  ">
-              <User onClick={() => setIsModalOpen(!isModalOpen)} className="" />
-              {data && (
-                <span className="absolute bottom-0 right-1 inline-flex rounded-full h-3 w-3 bg-green-400  "></span>
-              )}
-            </div>
-            {data && <span className="text-sm font-semibold text-green-500">{data.message && "online"}</span>}
+    <div className="flex items-center justify-center">
+      <Card className="w-full max-w-sm shadow-md border-muted">
+      <CardContent className="flex flex-col items-center gap-5 py-6">
+        {/* Avatar */}
+        <div className="relative">
+          <div className="flex items-center justify-center h-20 w-20 rounded-full bg-blue-100 ring-4 ring-blue-200">
+            <User className="h-8 w-8 text-blue-600" />
           </div>
-          {isModalOpen && (
-            <Card className="  w-xs bg-gray-600 border-none text-gray-200">
-              <CardContent className="grid gap-5 py-3">
-                <div className="grid gap-2">
-                  <div className="flex items-center gap-2 text-sm">
-                    <span className="font-semibold">Name:</span>
-                    <span>{data?.currentAdmin.name || "N/A"}</span>
-                  </div>
 
-                  <div className="flex items-center gap-2">
-                    <span className="font-semibold">Email:</span>
-                    <span>{data?.currentAdmin.email || "N/A"}</span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="font-semibold">Role:</span>
-                    <span>{data?.currentAdmin.role || "N/A"}</span>
-                  </div>
-                </div>
-                <div className="">
-                  {data && (
-                    <Button
-                      onClick={handleLogout}
-                      className="bg-blue-500 px-5 py-1 rounded font-semibold hover:bg-blue-400"
-                    >
-                      Logout
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          )}
+          {data && <span className="absolute bottom-1 right-1 h-3 w-3 rounded-full bg-green-500 ring-2 ring-white" />}
         </div>
-      </div>
+
+        {/* Status */}
+        {data && (
+          <span className="text-xs font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">Online</span>
+        )}
+
+        {/* Info */}
+        <div className="w-full space-y-3 text-sm">
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground">Name</span>
+            <span className="font-semibold">{admin?.name || "N/A"}</span>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground flex items-center gap-1">
+              <Mail className="h-4 w-4" /> Email
+            </span>
+            <span className="font-semibold">{admin?.email || "N/A"}</span>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground flex items-center gap-1">
+              <ShieldCheck className="h-4 w-4" /> Role
+            </span>
+            <span className="font-semibold capitalize">{admin?.role || "N/A"}</span>
+          </div>
+        </div>
+
+        {/* Logout */}
+        <Button onClick={handleLogout} className="w-full bg-blue-600 hover:bg-blue-500">
+          Logout
+        </Button>
+      </CardContent>
+    </Card>
     </div>
   );
 };

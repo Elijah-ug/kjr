@@ -27,7 +27,7 @@ export const Login = () => {
       navigate("/dashboard", { replace: true });
       return res;
     } catch (error) {
-      console.log("Login Error==>", error.message);
+      console.log("Login Error==>", error);
     }
   };
 

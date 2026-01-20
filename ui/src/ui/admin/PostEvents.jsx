@@ -5,10 +5,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useGetEventQuery } from "../state/features/events";
-import { usePostEventMutation } from "../state/features/events";
-import { useUpdateEventMutation } from "../state/features/events";
+
 import { formatDate } from "../utils/utils";
+import { useGetEventQuery, usePostEventMutation, useUpdateEventMutation } from "../state/features/events";
 
 // todos
 // 1. To validate inputs with zod && finding proper way of navigating after posting
@@ -35,16 +34,16 @@ export const PostEvents = () => {
   const handlePostEvent = async (e) => {
     e.preventDefault();
     try {
-      console.log("post this event==>", event, typeof new Date(event.date));
+      console.log("post this event==>", event, typeof formatDate(event.date));
       if (id) {
-        const res = await update({ eventId, date: formatDate(data.event.date), ...event });
+        const res = await update({ eventId, ...event });
         console.log("updated event==>", res);
         navigate("/");
         return res;
       } else {
-        const res = await newEvent({ ...event, date: formatDate(event.date) });
+        const res = await newEvent(event);
         console.log("Event posted==>", res);
-        navigate("/");
+        navigate("/dashboard/profile");
         return res;
       }
     } catch (error) {
@@ -57,9 +56,7 @@ export const PostEvents = () => {
     <div className="flex flex-col justify-center  items-center gap-5 px-6">
       <Card
         className="  w-xs sm:w-lg lg:w-xl
-      bg-linear-to-br from-gray-700 to-gray-800
-      border border-white/10
-      text-gray-200
+      
       rounded-3xl
       shadow-xl py-10"
       >
@@ -103,14 +100,14 @@ export const PostEvents = () => {
                 />
               </div>
 
-              <div className="grid gap-2">
+              {/* <div className="grid gap-2">
                 <Label htmlFor="pic">Image</Label>
                 <Input
                   id="file"
                   type="file"
                   className="bg-gray-900/50 border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 />
-              </div>
+              </div> */}
               <Button
                 type="submit"
                 className="w-full rounded-full bg-blue-500 hover:bg-blue-400 shadow-lg hover:shadow-blue-500/40

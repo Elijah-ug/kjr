@@ -7,7 +7,6 @@ import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger 
 import { useGetAdminQuery } from "../state/features/admin";
 import { PostEvents } from "./PostEvents";
 import { PostNews } from "./PostNews";
-import { Messages } from "./Messages";
 
 /* =========================
    Navigation config (DRY)
@@ -18,6 +17,7 @@ const navItems = [
   // { icon: Image, to: "add-image", label: "Images" },
   { icon: Mail, to: "messages", label: "Messages" },
   { icon: Bell, to: "notifications", label: "Notifications" },
+  { icon: User, to: "profile", label: "Profile" },
 ];
 
 export const AdminDashboard = () => {
@@ -64,25 +64,25 @@ export const AdminDashboard = () => {
      Main layout
   ========================= */
   return (
-    <div className="min-h-screen flex items-center bg-muted/40 lg:mt-27">
+    <div className="min-h-screen flex bg-muted/40 mt-27">
       {/* =========================
           Desktop Sidebar
       ========================= */}
-      <aside className="hidden lg:flex flex-col w-64 bg-gray-900 text-white p-6">
+      <aside className="hidden lg:flex flex-col w-64 bg-gray-900 text-white p-6 h-screen">
         <h2 className="text-xl font-semibold mb-8">Admin Panel</h2>
 
-        <nav className="flex flex-col gap-2">
+        <nav className="flex flex-col gap-2 ">
           {navItems.map((item, i) => (
             <NavLink
               key={i}
               to={item.to}
               className={({ isActive }) =>
-                `flex items-center gap-4 px-4 py-2 rounded-xl transition-all
+                `flex items-center gap-4 px-4 py-2 rounded-xl transition-all 
                  ${isActive ? " text-white shadow-lg bg-white/10" : "text-gray-300 hover:bg-white/10 hover:text-white"}`
               }
             >
-              <item.icon className="size-5" />
-              <span>{item.label}</span>
+              <item.icon className="size-5 text-white font-semibold" />
+              <span className="text-white font-semibold">{item.label}</span>
             </NavLink>
           ))}
         </nav>
@@ -130,17 +130,18 @@ export const AdminDashboard = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="rounded-full bg-gray-200 p-2 opacity-70 hover:opacity-100 transition">
+            <div className="rounded-full bg-gray-200 p-2 opacity-70 hover:opacity-100 transition relative">
               <User className="cursor-pointer" />
+              <span className="absolute bottom-0 right-1 inline-flex rounded-full h-3 w-3 bg-green-400  "></span>{" "}
             </div>
-            <span className="text-sm text-muted-foreground">{admin?.currentAdmin.email}</span>
+            <span className="text-sm text-green-500">{admin ? "Online" : ""}</span>
           </div>
         </header>
 
         {/* =========================
             Page Content
         ========================= */}
-        <main className="my-7">
+        <main className="flex-1 p-6 lg:p-10">
           <Outlet />
         </main>
       </div>

@@ -22,9 +22,8 @@ export const updateAdminValidator = z.object({
 export const eventsValidator = z.object({
   title: z.string().min(3).max(100),
   description: z.string().min(3).max(250),
-  picurl: z.string(),
-  date: z.date(),
-  adminId: z.number(),
+  picurl: z.string().nullable().optional(),
+  date: z.string().transform((val) => new Date(val)),
 });
 
 export const updateEventsValidator = z.object({
@@ -32,19 +31,17 @@ export const updateEventsValidator = z.object({
   description: z.string().min(3).max(250),
   picurl: z.string(),
   date: z.date(),
-  adminId: z.number(),
+  adminId: z.string().transform((val) => new Date(val)),
 });
 
 export const newsValidator = z.object({
   title: z.string().min(3).max(100),
   description: z.string().min(3).max(250),
-  picurl: z.string(),
-  adminId: z.number(),
+  picurl: z.string().nullable().optional(),
 });
 
 export const updateNewsValidator = z.object({
   title: z.string().min(3).max(100).optional(),
   description: z.string().min(3).max(250).optional(),
-  picurl: z.string().optional(),
-  adminId: z.number(),
+  picurl: z.string().nullable().optional(),
 });
