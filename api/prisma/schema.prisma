@@ -49,6 +49,8 @@ model Message {
   id          Int       @id @default(autoincrement())
   name        String
   email       String
+  phone       String?
+  subject     String?
   message     String
   readAt      DateTime?
   submittedAt DateTime  @default(now())

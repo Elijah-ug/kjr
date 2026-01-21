@@ -5,6 +5,7 @@ import admissionRoute from "./routes/admissionRoute";
 import adminRoute from "./routes/adminRoute";
 import newsRoutes from "routes/newspostRoute";
 import eventsRoutes from "routes/eventsRoute";
+import messageRoutes from "routes/messageRoutes";
 dotenv.config();
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(`${baseUrl}/admin/`, adminRoute);
 app.use(`${baseUrl}/admissions`, admissionRoute);
 app.use(`${baseUrl}/news-posts`, newsRoutes);
 app.use(`${baseUrl}/events`, eventsRoutes);
+app.use(`${baseUrl}/messages`, messageRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log("listening to port ", process.env.PORT);

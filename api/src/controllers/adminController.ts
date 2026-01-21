@@ -31,7 +31,7 @@ export const store = async (req: Request, res: Response) => {
 export const index = async (req: Request, res: Response) => {
   try {
     const admins = await prisma.admin.findMany();
-    console.log("admin added to db==>", admins);
+    // console.log("admin added to db==>", admins);
     return res.status(200).json({ message: "Admins fetched!", admins });
   } catch (error) {
     console.log("Error==>", error);
@@ -44,7 +44,7 @@ export const show = async (req: AuthenticatedRequest, res: Response) => {
     const id = req?.admin?.id;
     const admin = await prisma.admin.findUnique({ where: { id } });
     const currentAdmin = safeUser(admin);
-    console.log("admin fetched ==>", currentAdmin);
+    // console.log("admin fetched ==>", currentAdmin);
     return res.status(200).json({ message: "Admin fetched!", currentAdmin });
   } catch (error) {
     console.log("Error==>", error);

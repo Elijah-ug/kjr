@@ -1,25 +1,27 @@
-import { useDeleteNewsMutation, useGetNewsQuery } from "@/ui/state/features/news";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Edit, Trash } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useDeleteEventMutation, useGetAllEventsQuery } from "@/ui/state/features/events";
+import { useDestroyEventMutation, useGetEventsQuery } from "@/ui/state/features/events";
+import { toast } from "react-toastify";
 
 export const MutateEventPosts = () => {
-  const { data, isLoading, error } = useGetAllEventsQuery();
-  const [destroy, { isLoading: loadDestroy, error: destroyErr }] = useDeleteEventMutation();
+  const { data, isLoading, error } = useGetEventsQuery();
+  const [destroy, { isLoading: loadDestroy, error: destroyErr }] = useDestroyEventMutation();
   const handleDeleteEvent = async (eventId) => {
     try {
       const res = await destroy(eventId);
-      console.log("Deleted news post==>", res);
+      console.log("Deleted event post==>", res);
+      toast.success("Event deleted!");
       return res;
     } catch (error) {
       console.log("Error==>", error);
+      return toast.error("Failed to delete event!");
     }
   };
-  // console.log("News hereeee==>", data);
+  console.log("Events hereeee==>", data);
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
+    <div className="max-w-5xl mx-auto px-4 py-">
       <h2 className="text-2xl font-semibold mb-6 ">Total events available</h2>
 
       <div className="grid gap-4">
@@ -36,13 +38,12 @@ export const MutateEventPosts = () => {
                 </p>
               </div>
               <div className="flex items-center gap-7">
-                <Link to={`/post-event/${item.id}`}>
+                <Link to={`/dashboard/events/${item.id}`}>
                   <Edit className="text-blue-300 cursor-pointer" />
                 </Link>
                 <Trash onClick={() => handleDeleteEvent(item.id)} className="text-red-400 cursor-pointer" />
               </div>
             </CardHeader>
-            {/* <CardContent></CardContent> */}
           </Card>
         ))}
       </div>

@@ -20,6 +20,13 @@ import { PostGalary } from "./ui/admin/PostGalary";
 import { Messages } from "./ui/admin/Messages";
 import { ToastContainer } from "react-toastify";
 import { Notifications } from "./ui/admin/Notifications";
+import { MutateNewsPosts } from "./ui/admin/mutations/MutateNewsPosts";
+import { MutateEventPosts } from "./ui/admin/mutations/MutateEventPosts";
+import { Event } from "./ui/admin/mutations/Event";
+import { LearnerBio } from "./ui/applications/LearnerBio";
+import { GuardianBio } from "./ui/applications/GuardianBio";
+import { LearnerHealth } from "./ui/applications/LearnerHealth";
+import { AcademicBackground } from "./ui/applications/AcademicBackground";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -38,6 +45,10 @@ function App() {
             <Route path="gallery" element={<Gallery />} />
             <Route path="contact" element={<ContactUs />} />
             <Route path="admission" element={<Admission />} />
+            {/* <Route path="learner-bio" element={<LearnerBio />} /> */}
+            <Route path="guardian-bio" element={<GuardianBio />} />
+            <Route path="learner-health" element={<LearnerHealth />} />
+            <Route path="learners-academic-background" element={<AcademicBackground />} />
             <Route path="login" element={<Login />} />
             <Route path="add-admin" element={<RegisterAdmin />} />
             <Route path="dashboard" element={<AdminDashboard />}>
@@ -46,6 +57,10 @@ function App() {
               <Route path="post-news" element={<PostNews />} />
               <Route path="notifications" element={<Notifications />} />
               <Route path="messages" element={<Messages />} />
+              <Route path="news-list" element={<MutateNewsPosts />} />
+              <Route path="/dashboard/events/:id" element={<PostEvents />} />
+              <Route path="/dashboard/news/:id" element={<PostNews />} />
+              <Route path="event-list" element={<MutateEventPosts />} />
             </Route>
           </Routes>
         </main>

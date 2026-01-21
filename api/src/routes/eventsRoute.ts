@@ -5,7 +5,7 @@ const eventsRoutes = express.Router();
 
 eventsRoutes.post("/", verifyToken, store);
 eventsRoutes.get("/", index);
-eventsRoutes.get("/id", show);
+eventsRoutes.get("/:id", show);
 eventsRoutes.put("/:id", verifyToken, update);
 eventsRoutes.delete("/:id", verifyToken, destroy);
 export default eventsRoutes;

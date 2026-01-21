@@ -1,13 +1,35 @@
 // Contact.jsx
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { useSendMessageMutation } from "../state/features/messages";
+import { Spinner } from "@/components/ui/spinner";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export const ContactUs = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "", phone: "", subject: "" });
+  const navigate = useNavigate();
+
+  const [sendMsg, { isLoading: isSending }] = useSendMessageMutation();
+
+  const handleSendMessage = async (e) => {
+    e.preventDefault();
+    try {
+      console.log("Form data==>", formData);
+      const msg = await sendMsg(formData);
+      // console.log("Form data==>", msg);
+      toast.success(msg.data.message);
+      return navigate("/");
+    } catch (error) {
+      console.log("Error in messaging==>", error);
+      toast.error("Failed to send message!");
+    }
+  };
   return (
     <>
       {/* Hero */}
@@ -100,37 +122,73 @@ export const ContactUs = () => {
                 <CardTitle className="text-3xl font-bold text-center">Send Us a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6">
+                <form onSubmit={handleSendMessage} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="name">Your Name</Label>
-                      <Input id="name" placeholder="John Doe" className="mt-2" />
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="John Doe"
+                        className="mt-2"
+                        required
+                      />
                     </div>
                     <div>
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="john@example.com" className="mt-2" />
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="john@example.com"
+                        className="mt-2"
+                        required
+                      />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" type="tel" placeholder="+256 ..." className="mt-2" />
+                    <Label htmlFor="phone">Phone Number (Optional)</Label>
+                    <Input
+                      id="phone"
+                      type="phone"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+256 ..."
+                      className="mt-2"
+                    />
                   </div>
 
                   <div>
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" placeholder="Admissions Inquiry" className="mt-2" />
+                    <Label htmlFor="subject">Subject (Optional) </Label>
+                    <Input
+                      id="subject"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      placeholder="Admissions Inquiry"
+                      className="mt-2"
+                    />
                   </div>
 
                   <div>
                     <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" rows={6} placeholder="Tell us how we can help..." className="mt-2" />
+                    <Textarea
+                      id="message"
+                      rows={6}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Tell us how we can help..."
+                      className="mt-2"
+                      required
+                    />
                   </div>
 
-                  <div className="flex items-center justify-end">
+                  <div className="flex items-center justify-center">
                     <Button type="submit" size="lg" className="">
                       <Send className="mr-3 w-5 h-5" />
-                      Send Message
+                      {isSending ? <Spinner className="size-8" /> : "Send Message"}
                     </Button>
                   </div>
                 </form>

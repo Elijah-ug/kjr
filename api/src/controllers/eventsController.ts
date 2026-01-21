@@ -26,7 +26,7 @@ export const store = async (req: AuthenticatedRequest, res: Response) => {
 
 export const index = async (req: Request, res: Response) => {
   try {
-    const events = await prisma.event.findMany();
+    const events = await prisma.event.findMany({ orderBy: { createdAt: "desc" } });
     console.log("admin added to db==>", events);
     return res.status(200).json({ message: "events fetched!", events });
   } catch (error) {
@@ -52,7 +52,8 @@ export const update = async (req: Request, res: Response) => {
     const id = Number(req.params.id);
     const parsed: any = updateEventsValidator.safeParse(req.body);
     if (!parsed.success) {
-      return res.status(400).json({ message: "400 Invalid data" });
+      console.log("Update Error ==>", parsed.error);
+      return res.status(400).json({ message: "400 Invalid data", err: parsed.error });
     }
     const event = await prisma.event.update({ where: { id }, data: parsed.data });
     console.log("Event Updated ==>", event);

@@ -31,7 +31,7 @@ export const NavBar = () => {
   }, []);
 
   const { data, isLoading } = useGetAdminQuery();
-  console.log("Data here==>", data);
+  // console.log("Data here==>", data);
   const navItems = [
     { name: "Home", to: "/" },
     { name: "About Us", to: "/about" },

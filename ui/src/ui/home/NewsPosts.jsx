@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";
 import { Calendar, ChevronRight } from "lucide-react";
+import { useGetAllNewsQuery } from "../state/features/news";
 
 const news = [
   {
@@ -31,8 +32,13 @@ const news = [
 ];
 
 export const NewsPosts = () => {
+  const { data, isLoading, error } = useGetAllNewsQuery();
+  console.log("news posts ==>", data);
+
+  const dummyImg = "https://www.weareteachers.com/wp-content/uploads/black-history-bulletin-boards.png";
+  const len = data?.news.length;
   return (
-    <section className="py-20 bg-gray-50 px-6 sm:px-10">
+    <section className=" flex flex-col items-center justify-center py-20 bg-gray-50 px-6 sm:px-10">
       <div className="">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-5xl font-bold  mb-4">Latest School News</h2>
@@ -40,28 +46,31 @@ export const NewsPosts = () => {
         </div>
 
         {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-8">
-          {news.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-xs sm:w-auto h-full"
-            >
-              <img src={item.img} alt={item.title} className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-yellow-600 mb-3">
-                  <Calendar className="w-5 h-5" />
-                  <span className="text-sm font-medium">{item.date}</span>
+        <div
+          className={`grid grid-cols-1 ${len === 2 ? "sm:grid-cols-2" : len === 3 ? "sm:grid-cols-3" : len >= 4 && "lg:grid-cols-4"} place-items-center gap-7`}
+        >
+          {data &&
+            data.news.map((item) => (
+              <div
+                key={item.id}
+                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-xs max-w-full sm:w-auto h-full"
+              >
+                <img src={item.picurl ? item.picurl : dummyImg} alt={item.title} className="w-full h-48 object-cover" />
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-yellow-600 mb-3">
+                    <Calendar className="w-5 h-5" />
+                    <span className="text-sm font-medium">{item.date}</span>
+                  </div>
+                  <h3 className="font-bold mb-3">{item.title}</h3>
+                  <p className="text-gray-600 mb-6">{item.desc}</p>
+                  <Button variant="link" asChild className="text-blue-600 p-0 hover:text-yellow-500">
+                    <NavLink to="/news" className="flex items-center gap-2">
+                      Read More <ChevronRight className="w-4 h-4" />
+                    </NavLink>
+                  </Button>
                 </div>
-                <h3 className="font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-600 mb-6">{item.desc}</p>
-                <Button variant="link" asChild className="text-blue-600 p-0 hover:text-yellow-500">
-                  <NavLink to="/news" className="flex items-center gap-2">
-                    Read More <ChevronRight className="w-4 h-4" />
-                  </NavLink>
-                </Button>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </section>

@@ -1,12 +1,10 @@
 import React from "react";
-import { ActivityIcon, Bell, Image, Mail, Menu, Newspaper, User } from "lucide-react";
+import { ActivityIcon, Bell, Image, List, Mail, Menu, Newspaper, User } from "lucide-react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useGetAdminQuery } from "../state/features/admin";
-import { PostEvents } from "./PostEvents";
-import { PostNews } from "./PostNews";
 
 /* =========================
    Navigation config (DRY)
@@ -14,10 +12,11 @@ import { PostNews } from "./PostNews";
 const navItems = [
   { icon: Newspaper, to: "post-news", label: "Post News" },
   { icon: ActivityIcon, to: "post-event", label: "Post Events" },
-  // { icon: Image, to: "add-image", label: "Images" },
-  { icon: Mail, to: "messages", label: "Messages" },
   { icon: Bell, to: "notifications", label: "Notifications" },
   { icon: User, to: "profile", label: "Profile" },
+  { icon: Mail, to: "messages", label: "Messages" },
+  { icon: List, to: "news-list", label: "News List" },
+  { icon: List, to: "event-list", label: "Event List" },
 ];
 
 export const AdminDashboard = () => {
@@ -29,7 +28,6 @@ export const AdminDashboard = () => {
   } = useGetAdminQuery(undefined, {
     refetchOnMountOrArgChange: true,
   });
-  console.log("admin hereee==>", admin);
   /* =========================
      Loading state
   ========================= */
@@ -64,14 +62,14 @@ export const AdminDashboard = () => {
      Main layout
   ========================= */
   return (
-    <div className="min-h-screen flex bg-muted/40 mt-27">
+    <div className="min-h-screen flex bg-muted/40  sm:mt-27">
       {/* =========================
           Desktop Sidebar
       ========================= */}
-      <aside className="hidden lg:flex flex-col w-64 bg-gray-900 text-white p-6 h-screen">
+      <aside className="hidden lg:flex flex-col w-64 bg-gray-900 text-white p-6">
         <h2 className="text-xl font-semibold mb-8">Admin Panel</h2>
 
-        <nav className="flex flex-col gap-2 ">
+        <nav className="flex flex-col gap-2">
           {navItems.map((item, i) => (
             <NavLink
               key={i}

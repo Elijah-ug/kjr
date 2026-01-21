@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ArrowBigRight } from "lucide-react";
 
 export const Admission = () => {
   return (
@@ -86,7 +87,12 @@ export const Admission = () => {
               continue later.
             </p>
             {/* <Button asChild size="lg" className=""> */}
-              <Link to="/application-form/learners-bio" className="bg-green-500 px-3 py-2 rounded-lg">Start Application →</Link>
+            <Link
+              to="/application-form/learners-bio"
+              className="bg-green-500 px-3 py-2 rounded-lg flex items-center gap-2"
+            >
+              <span className="text-gray-700">Start Application</span> <ArrowBigRight className="text-gray-700" />{" "}
+            </Link>
             {/* </Button> */}
           </CardContent>
         </Card>

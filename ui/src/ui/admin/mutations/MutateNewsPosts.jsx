@@ -1,12 +1,12 @@
-import { useDeleteNewsMutation, useGetNewsQuery } from "@/ui/state/features/news";
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Edit, Trash } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useDestroyNewsMutation, useGetAllNewsQuery } from "@/ui/state/features/news";
 
 export const MutateNewsPosts = () => {
-  const { data, isLoading, error } = useGetNewsQuery();
-  const [destroy, { isLoading: loadDestroy, error: destroyErr }] = useDeleteNewsMutation();
+  const { data, isLoading, error } = useGetAllNewsQuery();
+  const [destroy, { isLoading: loadDestroy, error: destroyErr }] = useDestroyNewsMutation();
   const handleDeleteNewsPost = async (id) => {
     try {
       const res = await destroy(id);
@@ -18,7 +18,7 @@ export const MutateNewsPosts = () => {
   };
   console.log("News hereeee==>", data);
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
+    <div className="max-w-5xl mx-auto px-4 ">
       <h2 className="text-2xl font-semibold mb-6 ">You have unread messages </h2>
 
       <div className="grid gap-4">
@@ -35,7 +35,7 @@ export const MutateNewsPosts = () => {
                 </p>
               </div>
               <div className="flex items-center gap-7">
-                <Link to={`/post-news/${item.id}`}>
+                <Link to={`/dashboard/news/${item.id}`}>
                   <Edit className="text-blue-300 cursor-pointer" />
                 </Link>
                 <Trash onClick={() => handleDeleteNewsPost(item.id)} className="text-red-400 cursor-pointer" />

@@ -20,8 +20,8 @@ export const newsQueries= createApi({
             providesTags:["NewsTags"]
         }),
         getNews: builder.query({
-            query:()=>({
-                url:"/me",
+            query:(newsId)=>({
+                url:`/${newsId}`,
                 method:"GET"
             }),
             providesTags:["NewsTags"]
@@ -37,8 +37,8 @@ export const newsQueries= createApi({
         }),
 
         updateNews: builder.mutation({
-            query:({body, id})=>({
-                url:`/${id}`,
+            query:({newsId, ...body})=>({
+                url:`/${newsId}`,
                 method:"PUT",
                 body
             }),

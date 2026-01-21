@@ -8,13 +8,14 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { formatDate } from "../utils/utils";
 import { useGetEventQuery, usePostEventMutation, useUpdateEventMutation } from "../state/features/events";
+import { toast } from "react-toastify";
 
 // todos
 // 1. To validate inputs with zod && finding proper way of navigating after posting
 
 export const PostEvents = () => {
   const { id } = useParams();
-  const eventId = parseInt(id);
+  const eventId = Number(id);
   const [event, setEvent] = useState({ title: "", description: "", date: "" });
 
   const { data, isLoading: loadEvent, error: eventErr } = useGetEventQuery(eventId, { skip: !id });
@@ -26,7 +27,11 @@ export const PostEvents = () => {
   useEffect(() => {
     if (data) {
       // const formattedDate =
-      setEvent({ title: data.event.title, description: data.event.description, date: formatDate(data.event.date) });
+      setEvent({
+        title: data.event.title,
+        description: data.event.description,
+        date: formatDate(data.event.date).toLocaleString(),
+      });
     }
   }, [data]);
   // console.log("event data data==>", data);
@@ -37,12 +42,12 @@ export const PostEvents = () => {
       console.log("post this event==>", event, typeof formatDate(event.date));
       if (id) {
         const res = await update({ eventId, ...event });
-        console.log("updated event==>", res);
-        navigate("/");
+        toast.success("Event has been Updated!");
+        navigate("/dashboard/event-list");
         return res;
       } else {
         const res = await newEvent(event);
-        console.log("Event posted==>", res);
+        toast.success("Event has been Posted!");
         navigate("/dashboard/profile");
         return res;
       }
@@ -53,13 +58,8 @@ export const PostEvents = () => {
   // console.log(localStorage.getItem("token"))
   // const []
   return (
-    <div className="flex flex-col justify-center  items-center gap-5 px-6">
-      <Card
-        className="  w-xs sm:w-lg lg:w-xl
-      
-      rounded-3xl
-      shadow-xl py-10"
-      >
+    <div className="flex flex-col justify-center  items-center gap-5 sm:px-6">
+      <Card className="  w-xs sm:w-lg lg:w-xl rounded-3xl shadow-xl py-10">
         <CardHeader>
           <CardTitle className="">Add New Event</CardTitle>
         </CardHeader>

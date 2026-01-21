@@ -6,14 +6,13 @@ import { Textarea } from "@/components/ui/textarea";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetNewsQuery, usePostNewsMutation, useUpdateNewsMutation } from "../state/features/news";
-import { useUpdateAdminMutation } from "../state/features/admin";
 import { Spinner } from "@/components/ui/spinner";
+import { toast } from "react-toastify";
 
 export const PostNews = () => {
   const { id } = useParams();
-  const postId = parseInt(id);
-  const { data, isLoading: LoadNews, error: newsErr } = useGetNewsQuery(postId, { skip: !id });
-
+  const newsId = Number(id);
+  const { data, isLoading: LoadNews, error: newsErr } = useGetNewsQuery(newsId, { skip: !id });
   const [update, { isLoading: LoadNewsUpdate, error: newsUpdateErr }] = useUpdateNewsMutation();
 
   const [news, setNews] = useState({ title: "", description: "" });
@@ -22,30 +21,32 @@ export const PostNews = () => {
 
   useEffect(() => {
     if (data) {
-      setNews({ title: data.post.title, description: data.post.description });
+      setNews({ title: data.news.title, description: data.news.description });
     }
   }, [data]);
-  console.log("News data ==>", data);
   const handlePostNews = async (e) => {
     e.preventDefault();
     try {
-      console.log("post this event==>", news);
       if (id) {
-        const res = await update({ postId, ...news });
+        console.log("post this event==>", news);
+        const res = await update({ newsId, ...news });
         console.log("Updated ==>", res);
-        return navigate("/");
+        toast.success("NewsPost Updated!");
+        return navigate("/dashboard/news-list");
       } else {
         const res = await newsPost(news);
         console.log("data==>", res);
-        return res;
+        toast.success("News Posted!");
+        return navigate("/dashboard/news-list");
       }
     } catch (error) {
+      toast.error("Failed to Post news!");
       return console.log("Error==>", error);
     }
   };
   return (
-    <div className="flex flex-col justify-center  items-center gap-5 px-6 lg:px-10 py-7 ">
-      <Card className="  w-xs sm:w-lg lg:w-xlrounded-3xlshadow-xl py-10">
+    <div className="flex flex-col justify-center  items-center gap-5 sm:px-6 lg:px-10 py-7 ">
+      <Card className="  w-xs sm:w-lg lg:w-xl rounded-3xl shadow-xl py-10">
         <CardHeader>
           <CardTitle className="">Add News Post</CardTitle>
         </CardHeader>
