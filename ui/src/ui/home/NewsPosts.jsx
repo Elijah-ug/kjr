@@ -53,9 +53,13 @@ export const NewsPosts = () => {
             data.news.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-xs max-w-full sm:w-auto h-full"
+                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-xs sm:w-auto h-full"
               >
-                <img src={item.picurl ? item.picurl : dummyImg} alt={item.title} className="w-full h-48 object-cover" />
+                <img
+                  src={item.picurl ? item.picurl.url : dummyImg}
+                  alt={item.title}
+                  className="w-xs h-48 object-cover"
+                />
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-yellow-600 mb-3">
                     <Calendar className="w-5 h-5" />

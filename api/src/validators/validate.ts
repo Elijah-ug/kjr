@@ -22,21 +22,21 @@ export const updateAdminValidator = z.object({
 export const eventsValidator = z.object({
   title: z.string().min(3).max(100),
   description: z.string().min(3).max(250),
-  picurl: z.string().nullable().optional(),
+  picurl: z.object().nullable().optional(),
   date: z.string().transform((val) => new Date(val)),
 });
 
 export const updateEventsValidator = z.object({
   title: z.string().min(3).max(100),
   description: z.string().min(3).max(250),
-  picurl: z.string().nullable().optional(),
+  picurl: z.object().nullable().optional(),
   date: z.string().transform((val) => new Date(val)),
 });
 
 export const newsValidator = z.object({
   title: z.string().min(3).max(100),
   description: z.string().min(3).max(250),
-  picurl: z.string().nullable().optional(),
+  picurl: z.object().nullable().optional(),
 });
 
 export const updateNewsValidator = z.object({

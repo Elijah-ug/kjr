@@ -1,5 +1,6 @@
 import { prisma } from "config/client";
 import { Request, Response } from "express";
+import { uploadToCloudinary } from "services/cloudinary";
 import { newsValidator, updateNewsValidator } from "validators/validate";
 
 interface AuthenticatedRequest extends Request {
@@ -9,16 +10,27 @@ interface AuthenticatedRequest extends Request {
 export const store = async (req: AuthenticatedRequest, res: Response) => {
   try {
     const id = req.admin.id;
-    console.log("Id ==>", id);
     const parsed: any = newsValidator.safeParse(req.body);
     if (!parsed.success) {
       console.log("Parsed error==>", parsed.error);
       return res.status(400).json({ message: "Invalid data", error: parsed.error });
     }
-
+    if (!req.file || !req.file.buffer) {
+      console.log("Event image is required==>", req.file);
+    }
     if (!id) return res.status(404).json({ message: "404, Admin not found" });
-    const news = await prisma.newsPost.create({ data: { ...parsed.data, adminId: id } });
-    console.log("news posted==>", news);
+    const uploaded = await uploadToCloudinary(req.file?.buffer!, { folder: "kjr_news" });
+    const news = await prisma.newsPost.create({
+      data: {
+        ...parsed.data,
+        adminId: id,
+        picurl: {
+          url: uploaded.secure_url,
+          publicId: uploaded.public_id,
+        },
+      },
+    });
+    // console.log("news posted==>", news);
     return res.status(200).json({ message: "Created admin!", news });
   } catch (error) {
     console.log("Error==>", error);

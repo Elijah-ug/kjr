@@ -1,5 +1,6 @@
 import { prisma } from "config/client";
 import { Request, Response } from "express";
+import { uploadToCloudinary } from "services/cloudinary";
 import { eventsValidator, updateEventsValidator } from "validators/validate";
 
 interface AuthenticatedRequest extends Request {
@@ -15,8 +16,16 @@ export const store = async (req: AuthenticatedRequest, res: Response) => {
       return res.status(400).json({ message: "Invalid data", error: parsed.error });
     }
     if (!id) return res.status(404).json({ message: "404, Admin not found" });
-    const event = await prisma.event.create({ data: { ...parsed.data, adminId: id } });
-    console.log("added event==>", event);
+    if (!req.file || !req.file.buffer) {
+      console.log("Event image is required==>", req.file);
+    }
+    // upload the image
+    const uploaded = await uploadToCloudinary(req.file?.buffer!, { folder: "kjr_events" });
+    // console.log("Image to be stored==>", uploaded);
+    const event = await prisma.event.create({
+      data: { ...parsed.data, adminId: id, picurl: { url: uploaded.secure_url, publicId: uploaded.public_id } },
+    });
+    // console.log("added event==>", event);
     return res.status(200).json({ message: "Created Event!", event });
   } catch (error) {
     console.log("Error==>", error);
@@ -57,7 +66,7 @@ export const update = async (req: Request, res: Response) => {
     }
     const event = await prisma.event.update({ where: { id }, data: parsed.data });
     console.log("Event Updated ==>", event);
-    return res.status(200).json({ message: "Event Updated!", event });
+    return res.status(201).json({ message: "Event Updated!", event });
   } catch (error) {
     console.log("Error==>", error);
     return res.status(500).json({ err: error, message: "500 ISE" });

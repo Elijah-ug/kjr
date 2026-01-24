@@ -24,7 +24,7 @@ model NewsPost {
   id          Int       @id @default(autoincrement())
   title       String
   description String
-  picurl      String?
+  picurl      Json?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime?
   deletedAt   DateTime?
@@ -36,7 +36,7 @@ model Event {
   id          Int       @id @default(autoincrement())
   title       String
   description String
-  picurl      String?
+  picurl      Json?
   date        DateTime?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime?
@@ -58,7 +58,7 @@ model Message {
 
 model Gallery {
   id          Int       @id @default(autoincrement())
-  picurl      String
+  picurl      Json
   description String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime?

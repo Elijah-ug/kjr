@@ -15,29 +15,36 @@ export const PostNews = () => {
   const { data, isLoading: LoadNews, error: newsErr } = useGetNewsQuery(newsId, { skip: !id });
   const [update, { isLoading: LoadNewsUpdate, error: newsUpdateErr }] = useUpdateNewsMutation();
 
-  const [news, setNews] = useState({ title: "", description: "" });
+  const [news, setNews] = useState({ title: "", description: "", picurl: null });
   const [newsPost, { isLoading, error }] = usePostNewsMutation();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (data) {
-      setNews({ title: data.news.title, description: data.news.description });
+      setNews({ title: data.news.title, description: data.news.description, picurl: data.news.picurl });
     }
   }, [data]);
   const handlePostNews = async (e) => {
     e.preventDefault();
     try {
+      const formdata = new FormData();
+      formdata.append("title", news.title);
+      formdata.append("description", news.description);
+      if (news.picurl) {
+        formdata.append("picurl", news.picurl);
+      }
+
       if (id) {
         console.log("post this event==>", news);
-        const res = await update({ newsId, ...news });
+        const res = await update({ newsId, ...formdata });
         console.log("Updated ==>", res);
         toast.success("NewsPost Updated!");
         return navigate("/dashboard/news-list");
       } else {
-        const res = await newsPost(news);
+        const res = await newsPost(formdata);
         console.log("data==>", res);
-        toast.success("News Posted!");
-        return navigate("/dashboard/news-list");
+        toast.success(res.data.message);
+        return navigate("/dashboard/news-list", { replace: true });
       }
     } catch (error) {
       toast.error("Failed to Post news!");
@@ -74,14 +81,15 @@ export const PostNews = () => {
                   onChange={(e) => setNews({ ...news, description: e.target.value })}
                 />
               </div>
-              {/* <div className="grid gap-2">
+              <div className="grid gap-2">
                 <Label htmlFor="pic">Image</Label>
                 <Input
                   id="file"
                   type="file"
+                  onChange={(e) => setNews({ ...news, picurl: e.target.files[0] })}
                   className="bg-gray-900/50 border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 />
-              </div> */}
+              </div>
               <Button
                 type="submit"
                 className="w-full rounded-full bg-blue-500 hover:bg-blue-400 shadow-lg hover:shadow-blue-500/40

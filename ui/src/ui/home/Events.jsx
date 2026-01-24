@@ -4,32 +4,7 @@ import { NavLink } from "react-router-dom";
 import { CalendarDays, ChevronRight } from "lucide-react";
 import { useGetEventsQuery } from "../state/features/events";
 
-const events = [
-  {
-    img: "https://ugandamarathon.com/wp-content/uploads/2018/09/GP-Running-4.jpg", // Ugandan kids running sports day
-    date: "Jan 25, 2026",
-    title: "Annual Sports Day",
-    desc: "Races, games, and house competitions — fun for the whole family!",
-  },
-  {
-    img: "https://c8.alamy.com/comp/GHKXXA/african-school-children-in-rural-uganda-take-a-moment-during-morning-GHKXXA.jpg", // Morning assembly vibe
-    date: "Feb 14, 2026",
-    title: "Valentine's Day of Love & Sharing",
-    desc: "Celebrating kindness and friendship with special activities.",
-  },
-  {
-    img: "https://c8.alamy.com/comp/2Y657Y5/schoolchildren-perform-a-traditional-ugandan-dance-2Y657Y5.jpg", // School kids in traditional Ugandan dance
-    date: "Mar 08, 2026",
-    title: "Cultural Day Celebration",
-    desc: "Traditional dances, music, and food from our beautiful Uganda.",
-  },
-  {
-    img: "https://images.caxton.co.za/wp-content/uploads/sites/45/2024/11/WhatsApp-Image-2024-11-11-at-14.13.05-780x470.jpeg", // Student receiving award (Ugandan context)
-    date: "Apr 02, 2026",
-    title: "Mid-Term Academic Awards",
-    desc: "Recognizing hard work and excellence across all classes.",
-  },
-];
+
 
 export const Events = () => {
   const { data, isLoading, error } = useGetEventsQuery();
@@ -47,15 +22,19 @@ export const Events = () => {
 
         {/* Responsive Grid */}
         <div
-          className={`grid grid-cols-1 ${len === 2 ? "sm:grid-cols-2" : len === 3 ? "sm:grid-cols-3" : len >= 4 && "lg:grid-cols-4"}  place-items-center gap-8`}
+          className={`grid grid-cols-1 ${len === 2 ? "sm:grid-cols-2" : len === 3 ? "sm:grid-cols-3" : len >= 4 && "lg:grid-cols-4 sm:grid-cols-2"}  place-items-center gap-8`}
         >
           {data &&
             data.events.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-xs sm:w-auto h-full"
+                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-xs h-full"
               >
-                <img src={item.picUrl ? item.picUrl : dummyImg} alt={item.title} className="w-full h-48 object-cover" />
+                <img
+                  src={item.picurl ? item.picurl.url : dummyImg}
+                  alt={item.title}
+                  className="w-full h-[44%] object-cover"
+                />
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-green-600 mb-3">
                     <CalendarDays className="w-6 h-6" />
